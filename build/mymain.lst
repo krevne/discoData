@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccENnbkU.s 			page 1
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccNemce0.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -17,145 +17,74 @@ ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccENnbkU.s 			page 1
   14              		.eabi_attribute 18, 4
   15              		.file	"mymain.cpp"
   16              		.text
-  17              	.Ltext0:
-  18              		.cfi_sections	.debug_frame
-  19              		.section	.text.myMain,"ax",%progbits
-  20              		.align	1
-  21              		.global	myMain
-  22              		.syntax unified
-  23              		.thumb
-  24              		.thumb_func
-  26              	myMain:
-  27              		.fnstart
-  28              	.LFB137:
-  29              		.file 1 "Core/Src/mymain.cpp"
-   1:Core/Src/mymain.cpp **** #include "main.h"
-   2:Core/Src/mymain.cpp **** #include "mymain.h"
-   3:Core/Src/mymain.cpp **** 
-   4:Core/Src/mymain.cpp **** struct Led
-   5:Core/Src/mymain.cpp **** {
-   6:Core/Src/mymain.cpp ****     explicit Led(GPIO_TypeDef* t_gpio, uint16_t t_pin)
-   7:Core/Src/mymain.cpp ****         : gpio(t_gpio)
-   8:Core/Src/mymain.cpp ****         , pin(t_pin)
-   9:Core/Src/mymain.cpp ****     {
-  10:Core/Src/mymain.cpp ****     }
-  11:Core/Src/mymain.cpp ****     void on()
-  12:Core/Src/mymain.cpp ****     {
-  13:Core/Src/mymain.cpp ****         HAL_GPIO_WritePin(gpio, pin, GPIO_PIN_SET);
-  14:Core/Src/mymain.cpp ****     }
-  15:Core/Src/mymain.cpp ****     void off()
-  16:Core/Src/mymain.cpp ****     {
-  17:Core/Src/mymain.cpp ****         HAL_GPIO_WritePin(gpio, pin, GPIO_PIN_RESET);
-  18:Core/Src/mymain.cpp ****     }
-  19:Core/Src/mymain.cpp ****     void toggle()
-  20:Core/Src/mymain.cpp ****     {
-  21:Core/Src/mymain.cpp ****         HAL_GPIO_TogglePin(gpio, pin);
-  22:Core/Src/mymain.cpp ****     }
-  23:Core/Src/mymain.cpp ****     auto state() -> bool
-  24:Core/Src/mymain.cpp ****     {
-  25:Core/Src/mymain.cpp ****         return HAL_GPIO_ReadPin(gpio, pin);
-  26:Core/Src/mymain.cpp ****     }
-  27:Core/Src/mymain.cpp **** 
-  28:Core/Src/mymain.cpp **** private:
-  29:Core/Src/mymain.cpp ****     GPIO_TypeDef* gpio;
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccENnbkU.s 			page 2
+  17              		.align	1
+  18              		.global	myMain
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  23              	myMain:
+  24              		.fnstart
+  25              	.LFB137:
+  26              		@ args = 0, pretend = 0, frame = 32
+  27              		@ frame_needed = 0, uses_anonymous_args = 0
+  28 0000 10B5     		push	{r4, lr}
+  29              		.save {r4, lr}
+  30              		.pad #32
+  31 0002 88B0     		sub	sp, sp, #32
+  32 0004 1D4B     		ldr	r3, .L4
+  33 0006 0693     		str	r3, [sp, #24]
+  34 0008 4FF40052 		mov	r2, #8192
+  35 000c ADF81C20 		strh	r2, [sp, #28]	@ movhi
+  36 0010 0493     		str	r3, [sp, #16]
+  37 0012 4FF48052 		mov	r2, #4096
+  38 0016 ADF81420 		strh	r2, [sp, #20]	@ movhi
+  39 001a 0293     		str	r3, [sp, #8]
+  40 001c 4FF48042 		mov	r2, #16384
+  41 0020 ADF80C20 		strh	r2, [sp, #12]	@ movhi
+  42 0024 0093     		str	r3, [sp]
+  43 0026 4FF40043 		mov	r3, #32768
+  44 002a ADF80430 		strh	r3, [sp, #4]	@ movhi
+  45              	.L2:
+  46 002e 134C     		ldr	r4, .L4
+  47 0030 4FF40051 		mov	r1, #8192
+  48 0034 2046     		mov	r0, r4
+  49 0036 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+  50 003a 4FF41670 		mov	r0, #600
+  51 003e FFF7FEFF 		bl	HAL_Delay
+  52 0042 4FF48051 		mov	r1, #4096
+  53 0046 2046     		mov	r0, r4
+  54 0048 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+  55 004c 4FF41670 		mov	r0, #600
+  56 0050 FFF7FEFF 		bl	HAL_Delay
+  57 0054 4FF40041 		mov	r1, #32768
+  58 0058 2046     		mov	r0, r4
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccNemce0.s 			page 2
 
 
-  30:Core/Src/mymain.cpp ****     uint16_t pin;
-  31:Core/Src/mymain.cpp **** };
-  32:Core/Src/mymain.cpp **** 
-  33:Core/Src/mymain.cpp **** void myMain()
-  34:Core/Src/mymain.cpp **** {
-  30              		.loc 1 34 1 view -0
-  31              		.cfi_startproc
-  32              		@ args = 0, pretend = 0, frame = 8
-  33              		@ frame_needed = 0, uses_anonymous_args = 0
-  34 0000 00B5     		push	{lr}
-  35              		.save {lr}
-  36              	.LCFI0:
-  37              		.cfi_def_cfa_offset 4
-  38              		.cfi_offset 14, -4
-  39              		.pad #12
-  40 0002 83B0     		sub	sp, sp, #12
-  41              	.LCFI1:
-  42              		.cfi_def_cfa_offset 16
-  35:Core/Src/mymain.cpp ****     Led led(GPIOD,LD3_Pin);
-  43              		.loc 1 35 5 view .LVU1
-  44              	.LVL0:
-  45              	.LBB7:
-  46              	.LBI7:
-   6:Core/Src/mymain.cpp ****         : gpio(t_gpio)
-  47              		.loc 1 6 14 view .LVU2
-  48              	.LBB8:
-  49              	.LBB9:
-   8:Core/Src/mymain.cpp ****     {
-  50              		.loc 1 8 20 is_stmt 0 view .LVU3
-  51 0004 074B     		ldr	r3, .L4
-  52 0006 0093     		str	r3, [sp]
-  53 0008 4FF40053 		mov	r3, #8192
-  54 000c ADF80430 		strh	r3, [sp, #4]	@ movhi
-  55              	.LVL1:
-  56              	.L2:
-   8:Core/Src/mymain.cpp ****     {
-  57              		.loc 1 8 20 view .LVU4
-  58              	.LBE9:
-  59              	.LBE8:
-  60              	.LBE7:
-  36:Core/Src/mymain.cpp ****     while(true)
-  61              		.loc 1 36 5 is_stmt 1 view .LVU5
-  37:Core/Src/mymain.cpp ****     {
-  38:Core/Src/mymain.cpp ****         led.toggle();
-  62              		.loc 1 38 9 view .LVU6
-  63              	.LBB10:
-  64              	.LBI10:
-  19:Core/Src/mymain.cpp ****     {
-  65              		.loc 1 19 10 view .LVU7
-  66              	.LBB11:
-  21:Core/Src/mymain.cpp ****     }
-  67              		.loc 1 21 9 view .LVU8
-  21:Core/Src/mymain.cpp ****     }
-  68              		.loc 1 21 27 is_stmt 0 view .LVU9
-  69 0010 4FF40051 		mov	r1, #8192
-  70 0014 0348     		ldr	r0, .L4
-  71 0016 FFF7FEFF 		bl	HAL_GPIO_TogglePin
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccENnbkU.s 			page 3
-
-
-  72              	.LVL2:
-  21:Core/Src/mymain.cpp ****     }
-  73              		.loc 1 21 27 view .LVU10
-  74              	.LBE11:
-  75              	.LBE10:
-  39:Core/Src/mymain.cpp ****         HAL_Delay(600);
-  76              		.loc 1 39 9 is_stmt 1 view .LVU11
-  77              		.loc 1 39 18 is_stmt 0 view .LVU12
-  78 001a 4FF41670 		mov	r0, #600
-  79 001e FFF7FEFF 		bl	HAL_Delay
-  80              	.LVL3:
-  81 0022 F5E7     		b	.L2
-  82              	.L5:
-  83              		.align	2
-  84              	.L4:
-  85 0024 000C0240 		.word	1073875968
-  86              		.cfi_endproc
-  87              	.LFE137:
-  88              		.fnend
-  90              		.text
-  91              	.Letext0:
-  92              		.file 2 "r:\\tools\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\machine\\_defa
-  93              		.file 3 "r:\\tools\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\sys\\_stdint.h
-  94              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h"
-  95              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
-  96              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccENnbkU.s 			page 4
+  59 005a FFF7FEFF 		bl	HAL_GPIO_TogglePin
+  60 005e 4FF41670 		mov	r0, #600
+  61 0062 FFF7FEFF 		bl	HAL_Delay
+  62 0066 4FF48041 		mov	r1, #16384
+  63 006a 2046     		mov	r0, r4
+  64 006c FFF7FEFF 		bl	HAL_GPIO_TogglePin
+  65 0070 4FF41670 		mov	r0, #600
+  66 0074 FFF7FEFF 		bl	HAL_Delay
+  67 0078 D9E7     		b	.L2
+  68              	.L5:
+  69 007a 00BF     		.align	2
+  70              	.L4:
+  71 007c 000C0240 		.word	1073875968
+  72              		.fnend
+  74              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccNemce0.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 mymain.cpp
-C:\Users\Kenneth\AppData\Local\Temp\ccENnbkU.s:20     .text.myMain:00000000 $t
-C:\Users\Kenneth\AppData\Local\Temp\ccENnbkU.s:26     .text.myMain:00000000 myMain
-C:\Users\Kenneth\AppData\Local\Temp\ccENnbkU.s:85     .text.myMain:00000024 $d
-           .ARM.exidx.text.myMain:00000000 $d
+C:\Users\Kenneth\AppData\Local\Temp\ccNemce0.s:17     .text:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccNemce0.s:23     .text:00000000 myMain
+C:\Users\Kenneth\AppData\Local\Temp\ccNemce0.s:71     .text:0000007c $d
+                       .ARM.exidx:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_TogglePin

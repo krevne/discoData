@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 1
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -50,7 +50,7 @@ ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 1
   21:Core/Src/main.c **** 
   22:Core/Src/main.c **** /* Private includes ----------------------------------------------------------*/
   23:Core/Src/main.c **** /* USER CODE BEGIN Includes */
-  24:Core/Src/main.c **** 
+  24:Core/Src/main.c **** #include "mymain.h"
   25:Core/Src/main.c **** /* USER CODE END Includes */
   26:Core/Src/main.c **** 
   27:Core/Src/main.c **** /* Private typedef -----------------------------------------------------------*/
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 1
   29:Core/Src/main.c **** 
   30:Core/Src/main.c **** /* USER CODE END PTD */
   31:Core/Src/main.c **** 
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 2
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s 			page 2
 
 
   32:Core/Src/main.c **** /* Private define ------------------------------------------------------------*/
@@ -117,8 +117,8 @@ ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 1
   85:Core/Src/main.c ****   /* Initialize all configured peripherals */
   86:Core/Src/main.c ****   MX_GPIO_Init();
   87:Core/Src/main.c ****   /* USER CODE BEGIN 2 */
-  88:Core/Src/main.c **** 
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 3
+  88:Core/Src/main.c ****   myMain();
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s 			page 3
 
 
   89:Core/Src/main.c ****   /* USER CODE END 2 */
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 1
  143:Core/Src/main.c ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
  144:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
  145:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 4
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s 			page 4
 
 
  146:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 1
   63 001c 1A63     		str	r2, [r3, #48]
   64              		.loc 1 164 3 view .LVU6
   65 001e 1A6B     		ldr	r2, [r3, #48]
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 5
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s 			page 5
 
 
   66 0020 02F01002 		and	r2, r2, #16
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 1
  117 0062 049A     		ldr	r2, [sp, #16]
  118              	.LBE7:
  119              		.loc 1 167 3 view .LVU26
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 6
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s 			page 6
 
 
  168:Core/Src/main.c ****   __HAL_RCC_GPIOB_CLK_ENABLE();
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 1
  176:Core/Src/main.c **** 
  177:Core/Src/main.c ****   /*Configure GPIO pin Output Level */
  178:Core/Src/main.c ****   HAL_GPIO_WritePin(GPIOD, LD4_Pin|LD3_Pin|LD5_Pin|LD6_Pin
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 7
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s 			page 7
 
 
  166              		.loc 1 178 3 view .LVU41
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 1
  206              	.LVL4:
  193:Core/Src/main.c **** 
  194:Core/Src/main.c ****   /*Configure GPIO pins : INT1_Pin INT2_Pin MEMS_INT2_Pin */
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 8
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s 			page 8
 
 
  195:Core/Src/main.c ****   GPIO_InitStruct.Pin = INT1_Pin|INT2_Pin|MEMS_INT2_Pin;
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 1
  246 0108 0896     		str	r6, [sp, #32]
  210:Core/Src/main.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
  247              		.loc 1 210 3 is_stmt 1 view .LVU78
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 9
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s 			page 9
 
 
  248              		.loc 1 210 24 is_stmt 0 view .LVU79
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 1
  287              		.loc 1 225 3 is_stmt 1 view .LVU98
  288              		.loc 1 225 25 is_stmt 0 view .LVU99
  289 0136 0A94     		str	r4, [sp, #40]
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 10
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s 			page 10
 
 
  226:Core/Src/main.c ****   GPIO_InitStruct.Alternate = GPIO_AF6_SPI3;
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 1
  329              		.loc 1 240 24 is_stmt 0 view .LVU119
  330 0168 0994     		str	r4, [sp, #36]
  241:Core/Src/main.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 11
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s 			page 11
 
 
  331              		.loc 1 241 3 is_stmt 1 view .LVU120
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 1
  369              		.loc 1 257 24 is_stmt 0 view .LVU139
  370 0198 0994     		str	r4, [sp, #36]
  258:Core/Src/main.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 12
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s 			page 12
 
 
  371              		.loc 1 258 3 is_stmt 1 view .LVU140
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 1
  273:Core/Src/main.c ****   GPIO_InitStruct.Alternate = GPIO_AF10_OTG_FS;
  411              		.loc 1 273 3 is_stmt 1 view .LVU160
  412              		.loc 1 273 29 is_stmt 0 view .LVU161
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 13
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s 			page 13
 
 
  413 01c8 0A23     		movs	r3, #10
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 1
  288:Core/Src/main.c ****   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
  453              		.loc 1 288 3 is_stmt 1 view .LVU180
  454 01f6 07A9     		add	r1, sp, #28
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 14
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s 			page 14
 
 
  455 01f8 5046     		mov	r0, r10
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 1
    1:Drivers/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
    2:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
    3:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 15
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s 			page 15
 
 
    4:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @version  V5.0.4
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 1
   58:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __WEAK
   59:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __WEAK                                 __attribute__((weak))
   60:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 16
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s 			page 16
 
 
   61:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 1
  115:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  116:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  117:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 17
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s 			page 17
 
 
  118:Drivers/CMSIS/Include/cmsis_gcc.h **** /* ###########################  Core Function Access  ########################### */
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 1
  522              	.LFB131:
  113:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
  523              		.loc 1 113 1 view -0
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 18
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s 			page 18
 
 
  524              		.cfi_startproc
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 1
  567              	.LBB13:
  120:Core/Src/main.c **** 
  568              		.loc 1 120 3 view .LVU201
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 19
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s 			page 19
 
 
  569 0030 0293     		str	r3, [sp, #8]
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 1
  131:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV4;
  606              		.loc 1 131 30 is_stmt 0 view .LVU219
  607 005a 3222     		movs	r2, #50
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 20
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s 			page 20
 
 
  608 005c 1192     		str	r2, [sp, #68]
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 1
  148:Core/Src/main.c ****   {
  644              		.loc 1 148 7 is_stmt 0 view .LVU238
  645 0084 03A8     		add	r0, sp, #12
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 21
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s 			page 21
 
 
  646 0086 FFF7FEFF 		bl	HAL_RCC_ClockConfig
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 1
  696              	.LVL23:
   79:Core/Src/main.c **** 
  697              		.loc 1 79 3 view .LVU245
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 22
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s 			page 22
 
 
  698 0006 FFF7FEFF 		bl	SystemClock_Config
@@ -1267,70 +1267,78 @@ ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 1
  700              		.loc 1 86 3 view .LVU246
  701 000a FFF7FEFF 		bl	MX_GPIO_Init
  702              	.LVL25:
- 703              	.L16:
+  88:Core/Src/main.c ****   /* USER CODE END 2 */
+ 703              		.loc 1 88 3 view .LVU247
+ 704 000e FFF7FEFF 		bl	myMain
+ 705              	.LVL26:
+ 706              	.L16:
   93:Core/Src/main.c ****   {
- 704              		.loc 1 93 3 discriminator 1 view .LVU247
+ 707              		.loc 1 93 3 discriminator 1 view .LVU248
   95:Core/Src/main.c ****     HAL_Delay(600);
- 705              		.loc 1 95 5 discriminator 1 view .LVU248
- 706 000e 0B4C     		ldr	r4, .L18
- 707 0010 0122     		movs	r2, #1
- 708 0012 4FF40051 		mov	r1, #8192
- 709 0016 2046     		mov	r0, r4
- 710 0018 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 711              	.LVL26:
+ 708              		.loc 1 95 5 discriminator 1 view .LVU249
+ 709 0012 0B4C     		ldr	r4, .L18
+ 710 0014 0122     		movs	r2, #1
+ 711 0016 4FF40051 		mov	r1, #8192
+ 712 001a 2046     		mov	r0, r4
+ 713 001c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 714              	.LVL27:
   96:Core/Src/main.c ****     HAL_GPIO_WritePin(GPIOD,LD3_Pin,GPIO_PIN_RESET);
- 712              		.loc 1 96 5 discriminator 1 view .LVU249
- 713 001c 4FF41670 		mov	r0, #600
- 714 0020 FFF7FEFF 		bl	HAL_Delay
- 715              	.LVL27:
+ 715              		.loc 1 96 5 discriminator 1 view .LVU250
+ 716 0020 4FF41670 		mov	r0, #600
+ 717 0024 FFF7FEFF 		bl	HAL_Delay
+ 718              	.LVL28:
   97:Core/Src/main.c ****     HAL_Delay(600);
- 716              		.loc 1 97 5 discriminator 1 view .LVU250
- 717 0024 0022     		movs	r2, #0
- 718 0026 4FF40051 		mov	r1, #8192
- 719 002a 2046     		mov	r0, r4
- 720 002c FFF7FEFF 		bl	HAL_GPIO_WritePin
- 721              	.LVL28:
+ 719              		.loc 1 97 5 discriminator 1 view .LVU251
+ 720 0028 0022     		movs	r2, #0
+ 721 002a 4FF40051 		mov	r1, #8192
+ 722 002e 2046     		mov	r0, r4
+ 723 0030 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 724              	.LVL29:
   98:Core/Src/main.c **** 
- 722              		.loc 1 98 5 discriminator 1 view .LVU251
- 723 0030 4FF41670 		mov	r0, #600
- 724 0034 FFF7FEFF 		bl	HAL_Delay
- 725              	.LVL29:
+ 725              		.loc 1 98 5 discriminator 1 view .LVU252
+ 726 0034 4FF41670 		mov	r0, #600
+ 727 0038 FFF7FEFF 		bl	HAL_Delay
+ 728              	.LVL30:
   93:Core/Src/main.c ****   {
- 726              		.loc 1 93 9 discriminator 1 view .LVU252
- 727 0038 E9E7     		b	.L16
- 728              	.L19:
- 729 003a 00BF     		.align	2
- 730              	.L18:
- 731 003c 000C0240 		.word	1073875968
- 732              		.cfi_endproc
- 733              	.LFE130:
- 735              		.text
- 736              	.Letext0:
- 737              		.file 3 "r:\\tools\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\machine\\_defa
- 738              		.file 4 "r:\\tools\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\sys\\_stdint.h
- 739              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h"
- 740              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
- 741              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
- 742              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
- 743              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 744              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 745              		.file 11 "<built-in>"
-ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s 			page 23
+ 729              		.loc 1 93 9 discriminator 1 view .LVU253
+ 730 003c E9E7     		b	.L16
+ 731              	.L19:
+ 732 003e 00BF     		.align	2
+ 733              	.L18:
+ 734 0040 000C0240 		.word	1073875968
+ 735              		.cfi_endproc
+ 736              	.LFE130:
+ 738              		.text
+ 739              	.Letext0:
+ 740              		.file 3 "r:\\tools\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\machine\\_defa
+ 741              		.file 4 "r:\\tools\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\sys\\_stdint.h
+ 742              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h"
+ 743              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
+ 744              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
+ 745              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 746              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 747              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s 			page 23
+
+
+ 748              		.file 11 "Core/Inc/mymain.h"
+ 749              		.file 12 "<built-in>"
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s 			page 24
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s:20     .text.MX_GPIO_Init:00000000 $t
-C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s:25     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
-C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s:467    .text.MX_GPIO_Init:00000204 $d
-C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s:477    .text.Error_Handler:00000000 $t
-C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s:483    .text.Error_Handler:00000000 Error_Handler
-C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s:515    .text.SystemClock_Config:00000000 $t
-C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s:521    .text.SystemClock_Config:00000000 SystemClock_Config
-C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s:670    .text.SystemClock_Config:0000009c $d
-C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s:676    .text.main:00000000 $t
-C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s:682    .text.main:00000000 main
-C:\Users\Kenneth\AppData\Local\Temp\ccIbNbzZ.s:731    .text.main:0000003c $d
+C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s:20     .text.MX_GPIO_Init:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s:25     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
+C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s:467    .text.MX_GPIO_Init:00000204 $d
+C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s:477    .text.Error_Handler:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s:483    .text.Error_Handler:00000000 Error_Handler
+C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s:515    .text.SystemClock_Config:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s:521    .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s:670    .text.SystemClock_Config:0000009c $d
+C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s:676    .text.main:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s:682    .text.main:00000000 main
+C:\Users\Kenneth\AppData\Local\Temp\cc29bzEH.s:734    .text.main:00000040 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin
@@ -1339,4 +1347,5 @@ memset
 HAL_RCC_OscConfig
 HAL_RCC_ClockConfig
 HAL_Init
+myMain
 HAL_Delay
