@@ -1,0 +1,2030 @@
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"usbh_conf.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.HAL_HCD_MspInit,"ax",%progbits
+  20              		.align	1
+  21              		.global	HAL_HCD_MspInit
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	HAL_HCD_MspInit:
+  27              	.LVL0:
+  28              	.LFB133:
+  29              		.file 1 "USB_HOST/Target/usbh_conf.c"
+   1:USB_HOST/Target/usbh_conf.c **** /* USER CODE BEGIN Header */
+   2:USB_HOST/Target/usbh_conf.c **** /**
+   3:USB_HOST/Target/usbh_conf.c ****   ******************************************************************************
+   4:USB_HOST/Target/usbh_conf.c ****   * @file           : Target/usbh_conf.c
+   5:USB_HOST/Target/usbh_conf.c ****   * @version        : v1.0_Cube
+   6:USB_HOST/Target/usbh_conf.c ****   * @brief          : This file implements the board support package for the USB host library
+   7:USB_HOST/Target/usbh_conf.c ****   ******************************************************************************
+   8:USB_HOST/Target/usbh_conf.c ****   * @attention
+   9:USB_HOST/Target/usbh_conf.c ****   *
+  10:USB_HOST/Target/usbh_conf.c ****   * Copyright (c) 2022 STMicroelectronics.
+  11:USB_HOST/Target/usbh_conf.c ****   * All rights reserved.
+  12:USB_HOST/Target/usbh_conf.c ****   *
+  13:USB_HOST/Target/usbh_conf.c ****   * This software is licensed under terms that can be found in the LICENSE file
+  14:USB_HOST/Target/usbh_conf.c ****   * in the root directory of this software component.
+  15:USB_HOST/Target/usbh_conf.c ****   * If no LICENSE file comes with this software, it is provided AS-IS.
+  16:USB_HOST/Target/usbh_conf.c ****   *
+  17:USB_HOST/Target/usbh_conf.c ****   ******************************************************************************
+  18:USB_HOST/Target/usbh_conf.c ****   */
+  19:USB_HOST/Target/usbh_conf.c **** /* USER CODE END Header */
+  20:USB_HOST/Target/usbh_conf.c **** 
+  21:USB_HOST/Target/usbh_conf.c **** /* Includes ------------------------------------------------------------------*/
+  22:USB_HOST/Target/usbh_conf.c **** #include "usbh_core.h"
+  23:USB_HOST/Target/usbh_conf.c **** #include "usbh_platform.h"
+  24:USB_HOST/Target/usbh_conf.c **** 
+  25:USB_HOST/Target/usbh_conf.c **** /* USER CODE BEGIN Includes */
+  26:USB_HOST/Target/usbh_conf.c **** 
+  27:USB_HOST/Target/usbh_conf.c **** /* USER CODE END Includes */
+  28:USB_HOST/Target/usbh_conf.c **** 
+  29:USB_HOST/Target/usbh_conf.c **** /* Private typedef -----------------------------------------------------------*/
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 2
+
+
+  30:USB_HOST/Target/usbh_conf.c **** /* Private define ------------------------------------------------------------*/
+  31:USB_HOST/Target/usbh_conf.c **** /* Private macro -------------------------------------------------------------*/
+  32:USB_HOST/Target/usbh_conf.c **** 
+  33:USB_HOST/Target/usbh_conf.c **** /* USER CODE BEGIN PV */
+  34:USB_HOST/Target/usbh_conf.c **** /* Private variables ---------------------------------------------------------*/
+  35:USB_HOST/Target/usbh_conf.c **** 
+  36:USB_HOST/Target/usbh_conf.c **** /* USER CODE END PV */
+  37:USB_HOST/Target/usbh_conf.c **** 
+  38:USB_HOST/Target/usbh_conf.c **** HCD_HandleTypeDef hhcd_USB_OTG_FS;
+  39:USB_HOST/Target/usbh_conf.c **** void Error_Handler(void);
+  40:USB_HOST/Target/usbh_conf.c **** 
+  41:USB_HOST/Target/usbh_conf.c **** /* USER CODE BEGIN 0 */
+  42:USB_HOST/Target/usbh_conf.c **** 
+  43:USB_HOST/Target/usbh_conf.c **** /* USER CODE END 0 */
+  44:USB_HOST/Target/usbh_conf.c **** 
+  45:USB_HOST/Target/usbh_conf.c **** /* USER CODE BEGIN PFP */
+  46:USB_HOST/Target/usbh_conf.c **** /* Private function prototypes -----------------------------------------------*/
+  47:USB_HOST/Target/usbh_conf.c **** USBH_StatusTypeDef USBH_Get_USB_Status(HAL_StatusTypeDef hal_status);
+  48:USB_HOST/Target/usbh_conf.c **** 
+  49:USB_HOST/Target/usbh_conf.c **** /* USER CODE END PFP */
+  50:USB_HOST/Target/usbh_conf.c **** 
+  51:USB_HOST/Target/usbh_conf.c **** /* Private functions ---------------------------------------------------------*/
+  52:USB_HOST/Target/usbh_conf.c **** 
+  53:USB_HOST/Target/usbh_conf.c **** /* USER CODE BEGIN 1 */
+  54:USB_HOST/Target/usbh_conf.c **** 
+  55:USB_HOST/Target/usbh_conf.c **** /* USER CODE END 1 */
+  56:USB_HOST/Target/usbh_conf.c **** 
+  57:USB_HOST/Target/usbh_conf.c **** /*******************************************************************************
+  58:USB_HOST/Target/usbh_conf.c ****                        LL Driver Callbacks (HCD -> USB Host Library)
+  59:USB_HOST/Target/usbh_conf.c **** *******************************************************************************/
+  60:USB_HOST/Target/usbh_conf.c **** /* MSP Init */
+  61:USB_HOST/Target/usbh_conf.c **** 
+  62:USB_HOST/Target/usbh_conf.c **** void HAL_HCD_MspInit(HCD_HandleTypeDef* hcdHandle)
+  63:USB_HOST/Target/usbh_conf.c **** {
+  30              		.loc 1 63 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 32
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		.loc 1 63 1 is_stmt 0 view .LVU1
+  35 0000 70B5     		push	{r4, r5, r6, lr}
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 16
+  38              		.cfi_offset 4, -16
+  39              		.cfi_offset 5, -12
+  40              		.cfi_offset 6, -8
+  41              		.cfi_offset 14, -4
+  42 0002 88B0     		sub	sp, sp, #32
+  43              	.LCFI1:
+  44              		.cfi_def_cfa_offset 48
+  64:USB_HOST/Target/usbh_conf.c ****   GPIO_InitTypeDef GPIO_InitStruct = {0};
+  45              		.loc 1 64 3 is_stmt 1 view .LVU2
+  46              		.loc 1 64 20 is_stmt 0 view .LVU3
+  47 0004 0023     		movs	r3, #0
+  48 0006 0393     		str	r3, [sp, #12]
+  49 0008 0493     		str	r3, [sp, #16]
+  50 000a 0593     		str	r3, [sp, #20]
+  51 000c 0693     		str	r3, [sp, #24]
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 3
+
+
+  52 000e 0793     		str	r3, [sp, #28]
+  65:USB_HOST/Target/usbh_conf.c ****   if(hcdHandle->Instance==USB_OTG_FS)
+  53              		.loc 1 65 3 is_stmt 1 view .LVU4
+  54              		.loc 1 65 15 is_stmt 0 view .LVU5
+  55 0010 0368     		ldr	r3, [r0]
+  56              		.loc 1 65 5 view .LVU6
+  57 0012 B3F1A04F 		cmp	r3, #1342177280
+  58 0016 01D0     		beq	.L4
+  59              	.LVL1:
+  60              	.L1:
+  66:USB_HOST/Target/usbh_conf.c ****   {
+  67:USB_HOST/Target/usbh_conf.c ****   /* USER CODE BEGIN USB_OTG_FS_MspInit 0 */
+  68:USB_HOST/Target/usbh_conf.c **** 
+  69:USB_HOST/Target/usbh_conf.c ****   /* USER CODE END USB_OTG_FS_MspInit 0 */
+  70:USB_HOST/Target/usbh_conf.c **** 
+  71:USB_HOST/Target/usbh_conf.c ****     __HAL_RCC_GPIOA_CLK_ENABLE();
+  72:USB_HOST/Target/usbh_conf.c ****     /**USB_OTG_FS GPIO Configuration
+  73:USB_HOST/Target/usbh_conf.c ****     PA9     ------> USB_OTG_FS_VBUS
+  74:USB_HOST/Target/usbh_conf.c ****     PA10     ------> USB_OTG_FS_ID
+  75:USB_HOST/Target/usbh_conf.c ****     PA11     ------> USB_OTG_FS_DM
+  76:USB_HOST/Target/usbh_conf.c ****     PA12     ------> USB_OTG_FS_DP
+  77:USB_HOST/Target/usbh_conf.c ****     */
+  78:USB_HOST/Target/usbh_conf.c ****     GPIO_InitStruct.Pin = VBUS_FS_Pin;
+  79:USB_HOST/Target/usbh_conf.c ****     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  80:USB_HOST/Target/usbh_conf.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+  81:USB_HOST/Target/usbh_conf.c ****     HAL_GPIO_Init(VBUS_FS_GPIO_Port, &GPIO_InitStruct);
+  82:USB_HOST/Target/usbh_conf.c **** 
+  83:USB_HOST/Target/usbh_conf.c ****     GPIO_InitStruct.Pin = OTG_FS_ID_Pin|OTG_FS_DM_Pin|OTG_FS_DP_Pin;
+  84:USB_HOST/Target/usbh_conf.c ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  85:USB_HOST/Target/usbh_conf.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+  86:USB_HOST/Target/usbh_conf.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+  87:USB_HOST/Target/usbh_conf.c ****     GPIO_InitStruct.Alternate = GPIO_AF10_OTG_FS;
+  88:USB_HOST/Target/usbh_conf.c ****     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  89:USB_HOST/Target/usbh_conf.c **** 
+  90:USB_HOST/Target/usbh_conf.c ****     /* Peripheral clock enable */
+  91:USB_HOST/Target/usbh_conf.c ****     __HAL_RCC_USB_OTG_FS_CLK_ENABLE();
+  92:USB_HOST/Target/usbh_conf.c **** 
+  93:USB_HOST/Target/usbh_conf.c ****     /* Peripheral interrupt init */
+  94:USB_HOST/Target/usbh_conf.c ****     HAL_NVIC_SetPriority(OTG_FS_IRQn, 0, 0);
+  95:USB_HOST/Target/usbh_conf.c ****     HAL_NVIC_EnableIRQ(OTG_FS_IRQn);
+  96:USB_HOST/Target/usbh_conf.c ****   /* USER CODE BEGIN USB_OTG_FS_MspInit 1 */
+  97:USB_HOST/Target/usbh_conf.c **** 
+  98:USB_HOST/Target/usbh_conf.c ****   /* USER CODE END USB_OTG_FS_MspInit 1 */
+  99:USB_HOST/Target/usbh_conf.c ****   }
+ 100:USB_HOST/Target/usbh_conf.c **** }
+  61              		.loc 1 100 1 view .LVU7
+  62 0018 08B0     		add	sp, sp, #32
+  63              	.LCFI2:
+  64              		.cfi_remember_state
+  65              		.cfi_def_cfa_offset 16
+  66              		@ sp needed
+  67 001a 70BD     		pop	{r4, r5, r6, pc}
+  68              	.LVL2:
+  69              	.L4:
+  70              	.LCFI3:
+  71              		.cfi_restore_state
+  71:USB_HOST/Target/usbh_conf.c ****     /**USB_OTG_FS GPIO Configuration
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 4
+
+
+  72              		.loc 1 71 5 is_stmt 1 view .LVU8
+  73              	.LBB2:
+  71:USB_HOST/Target/usbh_conf.c ****     /**USB_OTG_FS GPIO Configuration
+  74              		.loc 1 71 5 view .LVU9
+  75 001c 0025     		movs	r5, #0
+  76 001e 0195     		str	r5, [sp, #4]
+  71:USB_HOST/Target/usbh_conf.c ****     /**USB_OTG_FS GPIO Configuration
+  77              		.loc 1 71 5 view .LVU10
+  78 0020 1B4C     		ldr	r4, .L5
+  79 0022 236B     		ldr	r3, [r4, #48]
+  80 0024 43F00103 		orr	r3, r3, #1
+  81 0028 2363     		str	r3, [r4, #48]
+  71:USB_HOST/Target/usbh_conf.c ****     /**USB_OTG_FS GPIO Configuration
+  82              		.loc 1 71 5 view .LVU11
+  83 002a 236B     		ldr	r3, [r4, #48]
+  84 002c 03F00103 		and	r3, r3, #1
+  85 0030 0193     		str	r3, [sp, #4]
+  71:USB_HOST/Target/usbh_conf.c ****     /**USB_OTG_FS GPIO Configuration
+  86              		.loc 1 71 5 view .LVU12
+  87 0032 019B     		ldr	r3, [sp, #4]
+  88              	.LBE2:
+  71:USB_HOST/Target/usbh_conf.c ****     /**USB_OTG_FS GPIO Configuration
+  89              		.loc 1 71 5 view .LVU13
+  78:USB_HOST/Target/usbh_conf.c ****     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  90              		.loc 1 78 5 view .LVU14
+  78:USB_HOST/Target/usbh_conf.c ****     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  91              		.loc 1 78 25 is_stmt 0 view .LVU15
+  92 0034 4FF40073 		mov	r3, #512
+  93 0038 0393     		str	r3, [sp, #12]
+  79:USB_HOST/Target/usbh_conf.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+  94              		.loc 1 79 5 is_stmt 1 view .LVU16
+  80:USB_HOST/Target/usbh_conf.c ****     HAL_GPIO_Init(VBUS_FS_GPIO_Port, &GPIO_InitStruct);
+  95              		.loc 1 80 5 view .LVU17
+  81:USB_HOST/Target/usbh_conf.c **** 
+  96              		.loc 1 81 5 view .LVU18
+  97 003a 164E     		ldr	r6, .L5+4
+  98 003c 03A9     		add	r1, sp, #12
+  99 003e 3046     		mov	r0, r6
+ 100              	.LVL3:
+  81:USB_HOST/Target/usbh_conf.c **** 
+ 101              		.loc 1 81 5 is_stmt 0 view .LVU19
+ 102 0040 FFF7FEFF 		bl	HAL_GPIO_Init
+ 103              	.LVL4:
+  83:USB_HOST/Target/usbh_conf.c ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+ 104              		.loc 1 83 5 is_stmt 1 view .LVU20
+  83:USB_HOST/Target/usbh_conf.c ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+ 105              		.loc 1 83 25 is_stmt 0 view .LVU21
+ 106 0044 4FF4E053 		mov	r3, #7168
+ 107 0048 0393     		str	r3, [sp, #12]
+  84:USB_HOST/Target/usbh_conf.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 108              		.loc 1 84 5 is_stmt 1 view .LVU22
+  84:USB_HOST/Target/usbh_conf.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 109              		.loc 1 84 26 is_stmt 0 view .LVU23
+ 110 004a 0223     		movs	r3, #2
+ 111 004c 0493     		str	r3, [sp, #16]
+  85:USB_HOST/Target/usbh_conf.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+ 112              		.loc 1 85 5 is_stmt 1 view .LVU24
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 5
+
+
+  85:USB_HOST/Target/usbh_conf.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+ 113              		.loc 1 85 26 is_stmt 0 view .LVU25
+ 114 004e 0595     		str	r5, [sp, #20]
+  86:USB_HOST/Target/usbh_conf.c ****     GPIO_InitStruct.Alternate = GPIO_AF10_OTG_FS;
+ 115              		.loc 1 86 5 is_stmt 1 view .LVU26
+  86:USB_HOST/Target/usbh_conf.c ****     GPIO_InitStruct.Alternate = GPIO_AF10_OTG_FS;
+ 116              		.loc 1 86 27 is_stmt 0 view .LVU27
+ 117 0050 0323     		movs	r3, #3
+ 118 0052 0693     		str	r3, [sp, #24]
+  87:USB_HOST/Target/usbh_conf.c ****     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+ 119              		.loc 1 87 5 is_stmt 1 view .LVU28
+  87:USB_HOST/Target/usbh_conf.c ****     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+ 120              		.loc 1 87 31 is_stmt 0 view .LVU29
+ 121 0054 0A23     		movs	r3, #10
+ 122 0056 0793     		str	r3, [sp, #28]
+  88:USB_HOST/Target/usbh_conf.c **** 
+ 123              		.loc 1 88 5 is_stmt 1 view .LVU30
+ 124 0058 03A9     		add	r1, sp, #12
+ 125 005a 3046     		mov	r0, r6
+ 126 005c FFF7FEFF 		bl	HAL_GPIO_Init
+ 127              	.LVL5:
+  91:USB_HOST/Target/usbh_conf.c **** 
+ 128              		.loc 1 91 5 view .LVU31
+  91:USB_HOST/Target/usbh_conf.c **** 
+ 129              		.loc 1 91 5 view .LVU32
+ 130 0060 636B     		ldr	r3, [r4, #52]
+ 131 0062 43F08003 		orr	r3, r3, #128
+ 132 0066 6363     		str	r3, [r4, #52]
+  91:USB_HOST/Target/usbh_conf.c **** 
+ 133              		.loc 1 91 5 view .LVU33
+ 134              	.LBB3:
+  91:USB_HOST/Target/usbh_conf.c **** 
+ 135              		.loc 1 91 5 view .LVU34
+ 136 0068 0295     		str	r5, [sp, #8]
+  91:USB_HOST/Target/usbh_conf.c **** 
+ 137              		.loc 1 91 5 view .LVU35
+ 138 006a 636C     		ldr	r3, [r4, #68]
+ 139 006c 43F48043 		orr	r3, r3, #16384
+ 140 0070 6364     		str	r3, [r4, #68]
+  91:USB_HOST/Target/usbh_conf.c **** 
+ 141              		.loc 1 91 5 view .LVU36
+ 142 0072 636C     		ldr	r3, [r4, #68]
+ 143 0074 03F48043 		and	r3, r3, #16384
+ 144 0078 0293     		str	r3, [sp, #8]
+  91:USB_HOST/Target/usbh_conf.c **** 
+ 145              		.loc 1 91 5 view .LVU37
+ 146 007a 029B     		ldr	r3, [sp, #8]
+ 147              	.LBE3:
+  91:USB_HOST/Target/usbh_conf.c **** 
+ 148              		.loc 1 91 5 view .LVU38
+  91:USB_HOST/Target/usbh_conf.c **** 
+ 149              		.loc 1 91 5 view .LVU39
+  94:USB_HOST/Target/usbh_conf.c ****     HAL_NVIC_EnableIRQ(OTG_FS_IRQn);
+ 150              		.loc 1 94 5 view .LVU40
+ 151 007c 2A46     		mov	r2, r5
+ 152 007e 2946     		mov	r1, r5
+ 153 0080 4320     		movs	r0, #67
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 6
+
+
+ 154 0082 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 155              	.LVL6:
+  95:USB_HOST/Target/usbh_conf.c ****   /* USER CODE BEGIN USB_OTG_FS_MspInit 1 */
+ 156              		.loc 1 95 5 view .LVU41
+ 157 0086 4320     		movs	r0, #67
+ 158 0088 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 159              	.LVL7:
+ 160              		.loc 1 100 1 is_stmt 0 view .LVU42
+ 161 008c C4E7     		b	.L1
+ 162              	.L6:
+ 163 008e 00BF     		.align	2
+ 164              	.L5:
+ 165 0090 00380240 		.word	1073887232
+ 166 0094 00000240 		.word	1073872896
+ 167              		.cfi_endproc
+ 168              	.LFE133:
+ 170              		.section	.text.HAL_HCD_MspDeInit,"ax",%progbits
+ 171              		.align	1
+ 172              		.global	HAL_HCD_MspDeInit
+ 173              		.syntax unified
+ 174              		.thumb
+ 175              		.thumb_func
+ 177              	HAL_HCD_MspDeInit:
+ 178              	.LVL8:
+ 179              	.LFB134:
+ 101:USB_HOST/Target/usbh_conf.c **** 
+ 102:USB_HOST/Target/usbh_conf.c **** void HAL_HCD_MspDeInit(HCD_HandleTypeDef* hcdHandle)
+ 103:USB_HOST/Target/usbh_conf.c **** {
+ 180              		.loc 1 103 1 is_stmt 1 view -0
+ 181              		.cfi_startproc
+ 182              		@ args = 0, pretend = 0, frame = 0
+ 183              		@ frame_needed = 0, uses_anonymous_args = 0
+ 184              		.loc 1 103 1 is_stmt 0 view .LVU44
+ 185 0000 08B5     		push	{r3, lr}
+ 186              	.LCFI4:
+ 187              		.cfi_def_cfa_offset 8
+ 188              		.cfi_offset 3, -8
+ 189              		.cfi_offset 14, -4
+ 104:USB_HOST/Target/usbh_conf.c ****   if(hcdHandle->Instance==USB_OTG_FS)
+ 190              		.loc 1 104 3 is_stmt 1 view .LVU45
+ 191              		.loc 1 104 15 is_stmt 0 view .LVU46
+ 192 0002 0368     		ldr	r3, [r0]
+ 193              		.loc 1 104 5 view .LVU47
+ 194 0004 B3F1A04F 		cmp	r3, #1342177280
+ 195 0008 00D0     		beq	.L10
+ 196              	.LVL9:
+ 197              	.L7:
+ 105:USB_HOST/Target/usbh_conf.c ****   {
+ 106:USB_HOST/Target/usbh_conf.c ****   /* USER CODE BEGIN USB_OTG_FS_MspDeInit 0 */
+ 107:USB_HOST/Target/usbh_conf.c **** 
+ 108:USB_HOST/Target/usbh_conf.c ****   /* USER CODE END USB_OTG_FS_MspDeInit 0 */
+ 109:USB_HOST/Target/usbh_conf.c ****     /* Peripheral clock disable */
+ 110:USB_HOST/Target/usbh_conf.c ****     __HAL_RCC_USB_OTG_FS_CLK_DISABLE();
+ 111:USB_HOST/Target/usbh_conf.c **** 
+ 112:USB_HOST/Target/usbh_conf.c ****     /**USB_OTG_FS GPIO Configuration
+ 113:USB_HOST/Target/usbh_conf.c ****     PA9     ------> USB_OTG_FS_VBUS
+ 114:USB_HOST/Target/usbh_conf.c ****     PA10     ------> USB_OTG_FS_ID
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 7
+
+
+ 115:USB_HOST/Target/usbh_conf.c ****     PA11     ------> USB_OTG_FS_DM
+ 116:USB_HOST/Target/usbh_conf.c ****     PA12     ------> USB_OTG_FS_DP
+ 117:USB_HOST/Target/usbh_conf.c ****     */
+ 118:USB_HOST/Target/usbh_conf.c ****     HAL_GPIO_DeInit(GPIOA, VBUS_FS_Pin|OTG_FS_ID_Pin|OTG_FS_DM_Pin|OTG_FS_DP_Pin);
+ 119:USB_HOST/Target/usbh_conf.c **** 
+ 120:USB_HOST/Target/usbh_conf.c ****     /* Peripheral interrupt Deinit*/
+ 121:USB_HOST/Target/usbh_conf.c ****     HAL_NVIC_DisableIRQ(OTG_FS_IRQn);
+ 122:USB_HOST/Target/usbh_conf.c **** 
+ 123:USB_HOST/Target/usbh_conf.c ****   /* USER CODE BEGIN USB_OTG_FS_MspDeInit 1 */
+ 124:USB_HOST/Target/usbh_conf.c **** 
+ 125:USB_HOST/Target/usbh_conf.c ****   /* USER CODE END USB_OTG_FS_MspDeInit 1 */
+ 126:USB_HOST/Target/usbh_conf.c ****   }
+ 127:USB_HOST/Target/usbh_conf.c **** }
+ 198              		.loc 1 127 1 view .LVU48
+ 199 000a 08BD     		pop	{r3, pc}
+ 200              	.LVL10:
+ 201              	.L10:
+ 110:USB_HOST/Target/usbh_conf.c **** 
+ 202              		.loc 1 110 5 is_stmt 1 view .LVU49
+ 203 000c 064A     		ldr	r2, .L11
+ 204 000e 536B     		ldr	r3, [r2, #52]
+ 205 0010 23F08003 		bic	r3, r3, #128
+ 206 0014 5363     		str	r3, [r2, #52]
+ 118:USB_HOST/Target/usbh_conf.c **** 
+ 207              		.loc 1 118 5 view .LVU50
+ 208 0016 4FF4F051 		mov	r1, #7680
+ 209 001a 0448     		ldr	r0, .L11+4
+ 210              	.LVL11:
+ 118:USB_HOST/Target/usbh_conf.c **** 
+ 211              		.loc 1 118 5 is_stmt 0 view .LVU51
+ 212 001c FFF7FEFF 		bl	HAL_GPIO_DeInit
+ 213              	.LVL12:
+ 121:USB_HOST/Target/usbh_conf.c **** 
+ 214              		.loc 1 121 5 is_stmt 1 view .LVU52
+ 215 0020 4320     		movs	r0, #67
+ 216 0022 FFF7FEFF 		bl	HAL_NVIC_DisableIRQ
+ 217              	.LVL13:
+ 218              		.loc 1 127 1 is_stmt 0 view .LVU53
+ 219 0026 F0E7     		b	.L7
+ 220              	.L12:
+ 221              		.align	2
+ 222              	.L11:
+ 223 0028 00380240 		.word	1073887232
+ 224 002c 00000240 		.word	1073872896
+ 225              		.cfi_endproc
+ 226              	.LFE134:
+ 228              		.section	.text.HAL_HCD_SOF_Callback,"ax",%progbits
+ 229              		.align	1
+ 230              		.global	HAL_HCD_SOF_Callback
+ 231              		.syntax unified
+ 232              		.thumb
+ 233              		.thumb_func
+ 235              	HAL_HCD_SOF_Callback:
+ 236              	.LVL14:
+ 237              	.LFB135:
+ 128:USB_HOST/Target/usbh_conf.c **** 
+ 129:USB_HOST/Target/usbh_conf.c **** /**
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 8
+
+
+ 130:USB_HOST/Target/usbh_conf.c ****   * @brief  SOF callback.
+ 131:USB_HOST/Target/usbh_conf.c ****   * @param  hhcd: HCD handle
+ 132:USB_HOST/Target/usbh_conf.c ****   * @retval None
+ 133:USB_HOST/Target/usbh_conf.c ****   */
+ 134:USB_HOST/Target/usbh_conf.c **** void HAL_HCD_SOF_Callback(HCD_HandleTypeDef *hhcd)
+ 135:USB_HOST/Target/usbh_conf.c **** {
+ 238              		.loc 1 135 1 is_stmt 1 view -0
+ 239              		.cfi_startproc
+ 240              		@ args = 0, pretend = 0, frame = 0
+ 241              		@ frame_needed = 0, uses_anonymous_args = 0
+ 242              		.loc 1 135 1 is_stmt 0 view .LVU55
+ 243 0000 08B5     		push	{r3, lr}
+ 244              	.LCFI5:
+ 245              		.cfi_def_cfa_offset 8
+ 246              		.cfi_offset 3, -8
+ 247              		.cfi_offset 14, -4
+ 136:USB_HOST/Target/usbh_conf.c ****   USBH_LL_IncTimer(hhcd->pData);
+ 248              		.loc 1 136 3 is_stmt 1 view .LVU56
+ 249 0002 D0F80003 		ldr	r0, [r0, #768]
+ 250              	.LVL15:
+ 251              		.loc 1 136 3 is_stmt 0 view .LVU57
+ 252 0006 FFF7FEFF 		bl	USBH_LL_IncTimer
+ 253              	.LVL16:
+ 137:USB_HOST/Target/usbh_conf.c **** }
+ 254              		.loc 1 137 1 view .LVU58
+ 255 000a 08BD     		pop	{r3, pc}
+ 256              		.cfi_endproc
+ 257              	.LFE135:
+ 259              		.section	.text.HAL_HCD_Connect_Callback,"ax",%progbits
+ 260              		.align	1
+ 261              		.global	HAL_HCD_Connect_Callback
+ 262              		.syntax unified
+ 263              		.thumb
+ 264              		.thumb_func
+ 266              	HAL_HCD_Connect_Callback:
+ 267              	.LVL17:
+ 268              	.LFB136:
+ 138:USB_HOST/Target/usbh_conf.c **** 
+ 139:USB_HOST/Target/usbh_conf.c **** /**
+ 140:USB_HOST/Target/usbh_conf.c ****   * @brief  SOF callback.
+ 141:USB_HOST/Target/usbh_conf.c ****   * @param  hhcd: HCD handle
+ 142:USB_HOST/Target/usbh_conf.c ****   * @retval None
+ 143:USB_HOST/Target/usbh_conf.c ****   */
+ 144:USB_HOST/Target/usbh_conf.c **** void HAL_HCD_Connect_Callback(HCD_HandleTypeDef *hhcd)
+ 145:USB_HOST/Target/usbh_conf.c **** {
+ 269              		.loc 1 145 1 is_stmt 1 view -0
+ 270              		.cfi_startproc
+ 271              		@ args = 0, pretend = 0, frame = 0
+ 272              		@ frame_needed = 0, uses_anonymous_args = 0
+ 273              		.loc 1 145 1 is_stmt 0 view .LVU60
+ 274 0000 08B5     		push	{r3, lr}
+ 275              	.LCFI6:
+ 276              		.cfi_def_cfa_offset 8
+ 277              		.cfi_offset 3, -8
+ 278              		.cfi_offset 14, -4
+ 146:USB_HOST/Target/usbh_conf.c ****   USBH_LL_Connect(hhcd->pData);
+ 279              		.loc 1 146 3 is_stmt 1 view .LVU61
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 9
+
+
+ 280 0002 D0F80003 		ldr	r0, [r0, #768]
+ 281              	.LVL18:
+ 282              		.loc 1 146 3 is_stmt 0 view .LVU62
+ 283 0006 FFF7FEFF 		bl	USBH_LL_Connect
+ 284              	.LVL19:
+ 147:USB_HOST/Target/usbh_conf.c **** }
+ 285              		.loc 1 147 1 view .LVU63
+ 286 000a 08BD     		pop	{r3, pc}
+ 287              		.cfi_endproc
+ 288              	.LFE136:
+ 290              		.section	.text.HAL_HCD_Disconnect_Callback,"ax",%progbits
+ 291              		.align	1
+ 292              		.global	HAL_HCD_Disconnect_Callback
+ 293              		.syntax unified
+ 294              		.thumb
+ 295              		.thumb_func
+ 297              	HAL_HCD_Disconnect_Callback:
+ 298              	.LVL20:
+ 299              	.LFB137:
+ 148:USB_HOST/Target/usbh_conf.c **** 
+ 149:USB_HOST/Target/usbh_conf.c **** /**
+ 150:USB_HOST/Target/usbh_conf.c ****   * @brief  SOF callback.
+ 151:USB_HOST/Target/usbh_conf.c ****   * @param  hhcd: HCD handle
+ 152:USB_HOST/Target/usbh_conf.c ****   * @retval None
+ 153:USB_HOST/Target/usbh_conf.c ****   */
+ 154:USB_HOST/Target/usbh_conf.c **** void HAL_HCD_Disconnect_Callback(HCD_HandleTypeDef *hhcd)
+ 155:USB_HOST/Target/usbh_conf.c **** {
+ 300              		.loc 1 155 1 is_stmt 1 view -0
+ 301              		.cfi_startproc
+ 302              		@ args = 0, pretend = 0, frame = 0
+ 303              		@ frame_needed = 0, uses_anonymous_args = 0
+ 304              		.loc 1 155 1 is_stmt 0 view .LVU65
+ 305 0000 08B5     		push	{r3, lr}
+ 306              	.LCFI7:
+ 307              		.cfi_def_cfa_offset 8
+ 308              		.cfi_offset 3, -8
+ 309              		.cfi_offset 14, -4
+ 156:USB_HOST/Target/usbh_conf.c ****   USBH_LL_Disconnect(hhcd->pData);
+ 310              		.loc 1 156 3 is_stmt 1 view .LVU66
+ 311 0002 D0F80003 		ldr	r0, [r0, #768]
+ 312              	.LVL21:
+ 313              		.loc 1 156 3 is_stmt 0 view .LVU67
+ 314 0006 FFF7FEFF 		bl	USBH_LL_Disconnect
+ 315              	.LVL22:
+ 157:USB_HOST/Target/usbh_conf.c **** }
+ 316              		.loc 1 157 1 view .LVU68
+ 317 000a 08BD     		pop	{r3, pc}
+ 318              		.cfi_endproc
+ 319              	.LFE137:
+ 321              		.section	.text.HAL_HCD_HC_NotifyURBChange_Callback,"ax",%progbits
+ 322              		.align	1
+ 323              		.global	HAL_HCD_HC_NotifyURBChange_Callback
+ 324              		.syntax unified
+ 325              		.thumb
+ 326              		.thumb_func
+ 328              	HAL_HCD_HC_NotifyURBChange_Callback:
+ 329              	.LVL23:
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 10
+
+
+ 330              	.LFB138:
+ 158:USB_HOST/Target/usbh_conf.c **** 
+ 159:USB_HOST/Target/usbh_conf.c **** /**
+ 160:USB_HOST/Target/usbh_conf.c ****   * @brief  Notify URB state change callback.
+ 161:USB_HOST/Target/usbh_conf.c ****   * @param  hhcd: HCD handle
+ 162:USB_HOST/Target/usbh_conf.c ****   * @param  chnum: channel number
+ 163:USB_HOST/Target/usbh_conf.c ****   * @param  urb_state: state
+ 164:USB_HOST/Target/usbh_conf.c ****   * @retval None
+ 165:USB_HOST/Target/usbh_conf.c ****   */
+ 166:USB_HOST/Target/usbh_conf.c **** void HAL_HCD_HC_NotifyURBChange_Callback(HCD_HandleTypeDef *hhcd, uint8_t chnum, HCD_URBStateTypeDe
+ 167:USB_HOST/Target/usbh_conf.c **** {
+ 331              		.loc 1 167 1 is_stmt 1 view -0
+ 332              		.cfi_startproc
+ 333              		@ args = 0, pretend = 0, frame = 0
+ 334              		@ frame_needed = 0, uses_anonymous_args = 0
+ 335              		@ link register save eliminated.
+ 168:USB_HOST/Target/usbh_conf.c ****   /* To be used with OS to sync URB state with the global state machine */
+ 169:USB_HOST/Target/usbh_conf.c **** #if (USBH_USE_OS == 1)
+ 170:USB_HOST/Target/usbh_conf.c ****   USBH_LL_NotifyURBChange(hhcd->pData);
+ 171:USB_HOST/Target/usbh_conf.c **** #endif
+ 172:USB_HOST/Target/usbh_conf.c **** }
+ 336              		.loc 1 172 1 view .LVU70
+ 337 0000 7047     		bx	lr
+ 338              		.cfi_endproc
+ 339              	.LFE138:
+ 341              		.section	.text.HAL_HCD_PortEnabled_Callback,"ax",%progbits
+ 342              		.align	1
+ 343              		.global	HAL_HCD_PortEnabled_Callback
+ 344              		.syntax unified
+ 345              		.thumb
+ 346              		.thumb_func
+ 348              	HAL_HCD_PortEnabled_Callback:
+ 349              	.LVL24:
+ 350              	.LFB139:
+ 173:USB_HOST/Target/usbh_conf.c **** /**
+ 174:USB_HOST/Target/usbh_conf.c **** * @brief  Port Port Enabled callback.
+ 175:USB_HOST/Target/usbh_conf.c ****   * @param  hhcd: HCD handle
+ 176:USB_HOST/Target/usbh_conf.c ****   * @retval None
+ 177:USB_HOST/Target/usbh_conf.c ****   */
+ 178:USB_HOST/Target/usbh_conf.c **** void HAL_HCD_PortEnabled_Callback(HCD_HandleTypeDef *hhcd)
+ 179:USB_HOST/Target/usbh_conf.c **** {
+ 351              		.loc 1 179 1 view -0
+ 352              		.cfi_startproc
+ 353              		@ args = 0, pretend = 0, frame = 0
+ 354              		@ frame_needed = 0, uses_anonymous_args = 0
+ 355              		.loc 1 179 1 is_stmt 0 view .LVU72
+ 356 0000 08B5     		push	{r3, lr}
+ 357              	.LCFI8:
+ 358              		.cfi_def_cfa_offset 8
+ 359              		.cfi_offset 3, -8
+ 360              		.cfi_offset 14, -4
+ 180:USB_HOST/Target/usbh_conf.c ****   USBH_LL_PortEnabled(hhcd->pData);
+ 361              		.loc 1 180 3 is_stmt 1 view .LVU73
+ 362 0002 D0F80003 		ldr	r0, [r0, #768]
+ 363              	.LVL25:
+ 364              		.loc 1 180 3 is_stmt 0 view .LVU74
+ 365 0006 FFF7FEFF 		bl	USBH_LL_PortEnabled
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 11
+
+
+ 366              	.LVL26:
+ 181:USB_HOST/Target/usbh_conf.c **** }
+ 367              		.loc 1 181 1 view .LVU75
+ 368 000a 08BD     		pop	{r3, pc}
+ 369              		.cfi_endproc
+ 370              	.LFE139:
+ 372              		.section	.text.HAL_HCD_PortDisabled_Callback,"ax",%progbits
+ 373              		.align	1
+ 374              		.global	HAL_HCD_PortDisabled_Callback
+ 375              		.syntax unified
+ 376              		.thumb
+ 377              		.thumb_func
+ 379              	HAL_HCD_PortDisabled_Callback:
+ 380              	.LVL27:
+ 381              	.LFB140:
+ 182:USB_HOST/Target/usbh_conf.c **** 
+ 183:USB_HOST/Target/usbh_conf.c **** /**
+ 184:USB_HOST/Target/usbh_conf.c ****   * @brief  Port Port Disabled callback.
+ 185:USB_HOST/Target/usbh_conf.c ****   * @param  hhcd: HCD handle
+ 186:USB_HOST/Target/usbh_conf.c ****   * @retval None
+ 187:USB_HOST/Target/usbh_conf.c ****   */
+ 188:USB_HOST/Target/usbh_conf.c **** void HAL_HCD_PortDisabled_Callback(HCD_HandleTypeDef *hhcd)
+ 189:USB_HOST/Target/usbh_conf.c **** {
+ 382              		.loc 1 189 1 is_stmt 1 view -0
+ 383              		.cfi_startproc
+ 384              		@ args = 0, pretend = 0, frame = 0
+ 385              		@ frame_needed = 0, uses_anonymous_args = 0
+ 386              		.loc 1 189 1 is_stmt 0 view .LVU77
+ 387 0000 08B5     		push	{r3, lr}
+ 388              	.LCFI9:
+ 389              		.cfi_def_cfa_offset 8
+ 390              		.cfi_offset 3, -8
+ 391              		.cfi_offset 14, -4
+ 190:USB_HOST/Target/usbh_conf.c ****   USBH_LL_PortDisabled(hhcd->pData);
+ 392              		.loc 1 190 3 is_stmt 1 view .LVU78
+ 393 0002 D0F80003 		ldr	r0, [r0, #768]
+ 394              	.LVL28:
+ 395              		.loc 1 190 3 is_stmt 0 view .LVU79
+ 396 0006 FFF7FEFF 		bl	USBH_LL_PortDisabled
+ 397              	.LVL29:
+ 191:USB_HOST/Target/usbh_conf.c **** }
+ 398              		.loc 1 191 1 view .LVU80
+ 399 000a 08BD     		pop	{r3, pc}
+ 400              		.cfi_endproc
+ 401              	.LFE140:
+ 403              		.section	.text.USBH_LL_Init,"ax",%progbits
+ 404              		.align	1
+ 405              		.global	USBH_LL_Init
+ 406              		.syntax unified
+ 407              		.thumb
+ 408              		.thumb_func
+ 410              	USBH_LL_Init:
+ 411              	.LVL30:
+ 412              	.LFB141:
+ 192:USB_HOST/Target/usbh_conf.c **** 
+ 193:USB_HOST/Target/usbh_conf.c **** /*******************************************************************************
+ 194:USB_HOST/Target/usbh_conf.c ****                        LL Driver Interface (USB Host Library --> HCD)
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 12
+
+
+ 195:USB_HOST/Target/usbh_conf.c **** *******************************************************************************/
+ 196:USB_HOST/Target/usbh_conf.c **** 
+ 197:USB_HOST/Target/usbh_conf.c **** /**
+ 198:USB_HOST/Target/usbh_conf.c ****   * @brief  Initialize the low level portion of the host driver.
+ 199:USB_HOST/Target/usbh_conf.c ****   * @param  phost: Host handle
+ 200:USB_HOST/Target/usbh_conf.c ****   * @retval USBH status
+ 201:USB_HOST/Target/usbh_conf.c ****   */
+ 202:USB_HOST/Target/usbh_conf.c **** USBH_StatusTypeDef USBH_LL_Init(USBH_HandleTypeDef *phost)
+ 203:USB_HOST/Target/usbh_conf.c **** {
+ 413              		.loc 1 203 1 is_stmt 1 view -0
+ 414              		.cfi_startproc
+ 415              		@ args = 0, pretend = 0, frame = 0
+ 416              		@ frame_needed = 0, uses_anonymous_args = 0
+ 204:USB_HOST/Target/usbh_conf.c ****   /* Init USB_IP */
+ 205:USB_HOST/Target/usbh_conf.c ****   if (phost->id == HOST_FS) {
+ 417              		.loc 1 205 3 view .LVU82
+ 418              		.loc 1 205 12 is_stmt 0 view .LVU83
+ 419 0000 90F8CC33 		ldrb	r3, [r0, #972]	@ zero_extendqisi2
+ 420              		.loc 1 205 6 view .LVU84
+ 421 0004 012B     		cmp	r3, #1
+ 422 0006 01D0     		beq	.L31
+ 206:USB_HOST/Target/usbh_conf.c ****   /* Link the driver to the stack. */
+ 207:USB_HOST/Target/usbh_conf.c ****   hhcd_USB_OTG_FS.pData = phost;
+ 208:USB_HOST/Target/usbh_conf.c ****   phost->pData = &hhcd_USB_OTG_FS;
+ 209:USB_HOST/Target/usbh_conf.c **** 
+ 210:USB_HOST/Target/usbh_conf.c ****   hhcd_USB_OTG_FS.Instance = USB_OTG_FS;
+ 211:USB_HOST/Target/usbh_conf.c ****   hhcd_USB_OTG_FS.Init.Host_channels = 8;
+ 212:USB_HOST/Target/usbh_conf.c ****   hhcd_USB_OTG_FS.Init.speed = HCD_SPEED_FULL;
+ 213:USB_HOST/Target/usbh_conf.c ****   hhcd_USB_OTG_FS.Init.dma_enable = DISABLE;
+ 214:USB_HOST/Target/usbh_conf.c ****   hhcd_USB_OTG_FS.Init.phy_itface = HCD_PHY_EMBEDDED;
+ 215:USB_HOST/Target/usbh_conf.c ****   hhcd_USB_OTG_FS.Init.Sof_enable = DISABLE;
+ 216:USB_HOST/Target/usbh_conf.c ****   if (HAL_HCD_Init(&hhcd_USB_OTG_FS) != HAL_OK)
+ 217:USB_HOST/Target/usbh_conf.c ****   {
+ 218:USB_HOST/Target/usbh_conf.c ****     Error_Handler( );
+ 219:USB_HOST/Target/usbh_conf.c ****   }
+ 220:USB_HOST/Target/usbh_conf.c **** 
+ 221:USB_HOST/Target/usbh_conf.c ****   USBH_LL_SetTimer(phost, HAL_HCD_GetCurrentFrame(&hhcd_USB_OTG_FS));
+ 222:USB_HOST/Target/usbh_conf.c ****   }
+ 223:USB_HOST/Target/usbh_conf.c ****   return USBH_OK;
+ 423              		.loc 1 223 3 is_stmt 1 view .LVU85
+ 224:USB_HOST/Target/usbh_conf.c **** }
+ 424              		.loc 1 224 1 is_stmt 0 view .LVU86
+ 425 0008 0020     		movs	r0, #0
+ 426              	.LVL31:
+ 427              		.loc 1 224 1 view .LVU87
+ 428 000a 7047     		bx	lr
+ 429              	.LVL32:
+ 430              	.L31:
+ 203:USB_HOST/Target/usbh_conf.c ****   /* Init USB_IP */
+ 431              		.loc 1 203 1 view .LVU88
+ 432 000c 10B5     		push	{r4, lr}
+ 433              	.LCFI10:
+ 434              		.cfi_def_cfa_offset 8
+ 435              		.cfi_offset 4, -8
+ 436              		.cfi_offset 14, -4
+ 437 000e 0446     		mov	r4, r0
+ 207:USB_HOST/Target/usbh_conf.c ****   phost->pData = &hhcd_USB_OTG_FS;
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 13
+
+
+ 438              		.loc 1 207 3 is_stmt 1 view .LVU89
+ 207:USB_HOST/Target/usbh_conf.c ****   phost->pData = &hhcd_USB_OTG_FS;
+ 439              		.loc 1 207 25 is_stmt 0 view .LVU90
+ 440 0010 0F48     		ldr	r0, .L33
+ 441              	.LVL33:
+ 207:USB_HOST/Target/usbh_conf.c ****   phost->pData = &hhcd_USB_OTG_FS;
+ 442              		.loc 1 207 25 view .LVU91
+ 443 0012 C0F80043 		str	r4, [r0, #768]
+ 208:USB_HOST/Target/usbh_conf.c **** 
+ 444              		.loc 1 208 3 is_stmt 1 view .LVU92
+ 208:USB_HOST/Target/usbh_conf.c **** 
+ 445              		.loc 1 208 16 is_stmt 0 view .LVU93
+ 446 0016 C4F8D003 		str	r0, [r4, #976]
+ 210:USB_HOST/Target/usbh_conf.c ****   hhcd_USB_OTG_FS.Init.Host_channels = 8;
+ 447              		.loc 1 210 3 is_stmt 1 view .LVU94
+ 210:USB_HOST/Target/usbh_conf.c ****   hhcd_USB_OTG_FS.Init.Host_channels = 8;
+ 448              		.loc 1 210 28 is_stmt 0 view .LVU95
+ 449 001a 4FF0A043 		mov	r3, #1342177280
+ 450 001e 0360     		str	r3, [r0]
+ 211:USB_HOST/Target/usbh_conf.c ****   hhcd_USB_OTG_FS.Init.speed = HCD_SPEED_FULL;
+ 451              		.loc 1 211 3 is_stmt 1 view .LVU96
+ 211:USB_HOST/Target/usbh_conf.c ****   hhcd_USB_OTG_FS.Init.speed = HCD_SPEED_FULL;
+ 452              		.loc 1 211 38 is_stmt 0 view .LVU97
+ 453 0020 0823     		movs	r3, #8
+ 454 0022 8360     		str	r3, [r0, #8]
+ 212:USB_HOST/Target/usbh_conf.c ****   hhcd_USB_OTG_FS.Init.dma_enable = DISABLE;
+ 455              		.loc 1 212 3 is_stmt 1 view .LVU98
+ 212:USB_HOST/Target/usbh_conf.c ****   hhcd_USB_OTG_FS.Init.dma_enable = DISABLE;
+ 456              		.loc 1 212 30 is_stmt 0 view .LVU99
+ 457 0024 0123     		movs	r3, #1
+ 458 0026 C360     		str	r3, [r0, #12]
+ 213:USB_HOST/Target/usbh_conf.c ****   hhcd_USB_OTG_FS.Init.phy_itface = HCD_PHY_EMBEDDED;
+ 459              		.loc 1 213 3 is_stmt 1 view .LVU100
+ 213:USB_HOST/Target/usbh_conf.c ****   hhcd_USB_OTG_FS.Init.phy_itface = HCD_PHY_EMBEDDED;
+ 460              		.loc 1 213 35 is_stmt 0 view .LVU101
+ 461 0028 0023     		movs	r3, #0
+ 462 002a 0361     		str	r3, [r0, #16]
+ 214:USB_HOST/Target/usbh_conf.c ****   hhcd_USB_OTG_FS.Init.Sof_enable = DISABLE;
+ 463              		.loc 1 214 3 is_stmt 1 view .LVU102
+ 214:USB_HOST/Target/usbh_conf.c ****   hhcd_USB_OTG_FS.Init.Sof_enable = DISABLE;
+ 464              		.loc 1 214 35 is_stmt 0 view .LVU103
+ 465 002c 0222     		movs	r2, #2
+ 466 002e 8261     		str	r2, [r0, #24]
+ 215:USB_HOST/Target/usbh_conf.c ****   if (HAL_HCD_Init(&hhcd_USB_OTG_FS) != HAL_OK)
+ 467              		.loc 1 215 3 is_stmt 1 view .LVU104
+ 215:USB_HOST/Target/usbh_conf.c ****   if (HAL_HCD_Init(&hhcd_USB_OTG_FS) != HAL_OK)
+ 468              		.loc 1 215 35 is_stmt 0 view .LVU105
+ 469 0030 C361     		str	r3, [r0, #28]
+ 216:USB_HOST/Target/usbh_conf.c ****   {
+ 470              		.loc 1 216 3 is_stmt 1 view .LVU106
+ 216:USB_HOST/Target/usbh_conf.c ****   {
+ 471              		.loc 1 216 7 is_stmt 0 view .LVU107
+ 472 0032 FFF7FEFF 		bl	HAL_HCD_Init
+ 473              	.LVL34:
+ 216:USB_HOST/Target/usbh_conf.c ****   {
+ 474              		.loc 1 216 6 view .LVU108
+ 475 0036 40B9     		cbnz	r0, .L32
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 14
+
+
+ 476              	.L26:
+ 221:USB_HOST/Target/usbh_conf.c ****   }
+ 477              		.loc 1 221 3 is_stmt 1 view .LVU109
+ 478 0038 0548     		ldr	r0, .L33
+ 479 003a FFF7FEFF 		bl	HAL_HCD_GetCurrentFrame
+ 480              	.LVL35:
+ 481 003e 0146     		mov	r1, r0
+ 482 0040 2046     		mov	r0, r4
+ 483 0042 FFF7FEFF 		bl	USBH_LL_SetTimer
+ 484              	.LVL36:
+ 223:USB_HOST/Target/usbh_conf.c **** }
+ 485              		.loc 1 223 3 view .LVU110
+ 486              		.loc 1 224 1 is_stmt 0 view .LVU111
+ 487 0046 0020     		movs	r0, #0
+ 488 0048 10BD     		pop	{r4, pc}
+ 489              	.LVL37:
+ 490              	.L32:
+ 218:USB_HOST/Target/usbh_conf.c ****   }
+ 491              		.loc 1 218 5 is_stmt 1 view .LVU112
+ 492 004a FFF7FEFF 		bl	Error_Handler
+ 493              	.LVL38:
+ 494 004e F3E7     		b	.L26
+ 495              	.L34:
+ 496              		.align	2
+ 497              	.L33:
+ 498 0050 00000000 		.word	.LANCHOR0
+ 499              		.cfi_endproc
+ 500              	.LFE141:
+ 502              		.section	.text.USBH_LL_GetSpeed,"ax",%progbits
+ 503              		.align	1
+ 504              		.global	USBH_LL_GetSpeed
+ 505              		.syntax unified
+ 506              		.thumb
+ 507              		.thumb_func
+ 509              	USBH_LL_GetSpeed:
+ 510              	.LVL39:
+ 511              	.LFB145:
+ 225:USB_HOST/Target/usbh_conf.c **** 
+ 226:USB_HOST/Target/usbh_conf.c **** /**
+ 227:USB_HOST/Target/usbh_conf.c ****   * @brief  De-Initialize the low level portion of the host driver.
+ 228:USB_HOST/Target/usbh_conf.c ****   * @param  phost: Host handle
+ 229:USB_HOST/Target/usbh_conf.c ****   * @retval USBH status
+ 230:USB_HOST/Target/usbh_conf.c ****   */
+ 231:USB_HOST/Target/usbh_conf.c **** USBH_StatusTypeDef USBH_LL_DeInit(USBH_HandleTypeDef *phost)
+ 232:USB_HOST/Target/usbh_conf.c **** {
+ 233:USB_HOST/Target/usbh_conf.c ****   HAL_StatusTypeDef hal_status = HAL_OK;
+ 234:USB_HOST/Target/usbh_conf.c ****   USBH_StatusTypeDef usb_status = USBH_OK;
+ 235:USB_HOST/Target/usbh_conf.c **** 
+ 236:USB_HOST/Target/usbh_conf.c ****   hal_status = HAL_HCD_DeInit(phost->pData);
+ 237:USB_HOST/Target/usbh_conf.c **** 
+ 238:USB_HOST/Target/usbh_conf.c ****   usb_status = USBH_Get_USB_Status(hal_status);
+ 239:USB_HOST/Target/usbh_conf.c **** 
+ 240:USB_HOST/Target/usbh_conf.c ****   return usb_status;
+ 241:USB_HOST/Target/usbh_conf.c **** }
+ 242:USB_HOST/Target/usbh_conf.c **** 
+ 243:USB_HOST/Target/usbh_conf.c **** /**
+ 244:USB_HOST/Target/usbh_conf.c ****   * @brief  Start the low level portion of the host driver.
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 15
+
+
+ 245:USB_HOST/Target/usbh_conf.c ****   * @param  phost: Host handle
+ 246:USB_HOST/Target/usbh_conf.c ****   * @retval USBH status
+ 247:USB_HOST/Target/usbh_conf.c ****   */
+ 248:USB_HOST/Target/usbh_conf.c **** USBH_StatusTypeDef USBH_LL_Start(USBH_HandleTypeDef *phost)
+ 249:USB_HOST/Target/usbh_conf.c **** {
+ 250:USB_HOST/Target/usbh_conf.c ****   HAL_StatusTypeDef hal_status = HAL_OK;
+ 251:USB_HOST/Target/usbh_conf.c ****   USBH_StatusTypeDef usb_status = USBH_OK;
+ 252:USB_HOST/Target/usbh_conf.c **** 
+ 253:USB_HOST/Target/usbh_conf.c ****   hal_status = HAL_HCD_Start(phost->pData);
+ 254:USB_HOST/Target/usbh_conf.c **** 
+ 255:USB_HOST/Target/usbh_conf.c ****   usb_status = USBH_Get_USB_Status(hal_status);
+ 256:USB_HOST/Target/usbh_conf.c **** 
+ 257:USB_HOST/Target/usbh_conf.c ****   return usb_status;
+ 258:USB_HOST/Target/usbh_conf.c **** }
+ 259:USB_HOST/Target/usbh_conf.c **** 
+ 260:USB_HOST/Target/usbh_conf.c **** /**
+ 261:USB_HOST/Target/usbh_conf.c ****   * @brief  Stop the low level portion of the host driver.
+ 262:USB_HOST/Target/usbh_conf.c ****   * @param  phost: Host handle
+ 263:USB_HOST/Target/usbh_conf.c ****   * @retval USBH status
+ 264:USB_HOST/Target/usbh_conf.c ****   */
+ 265:USB_HOST/Target/usbh_conf.c **** USBH_StatusTypeDef USBH_LL_Stop(USBH_HandleTypeDef *phost)
+ 266:USB_HOST/Target/usbh_conf.c **** {
+ 267:USB_HOST/Target/usbh_conf.c ****   HAL_StatusTypeDef hal_status = HAL_OK;
+ 268:USB_HOST/Target/usbh_conf.c ****   USBH_StatusTypeDef usb_status = USBH_OK;
+ 269:USB_HOST/Target/usbh_conf.c **** 
+ 270:USB_HOST/Target/usbh_conf.c ****   hal_status = HAL_HCD_Stop(phost->pData);
+ 271:USB_HOST/Target/usbh_conf.c **** 
+ 272:USB_HOST/Target/usbh_conf.c ****   usb_status = USBH_Get_USB_Status(hal_status);
+ 273:USB_HOST/Target/usbh_conf.c **** 
+ 274:USB_HOST/Target/usbh_conf.c ****   return usb_status;
+ 275:USB_HOST/Target/usbh_conf.c **** }
+ 276:USB_HOST/Target/usbh_conf.c **** 
+ 277:USB_HOST/Target/usbh_conf.c **** /**
+ 278:USB_HOST/Target/usbh_conf.c ****   * @brief  Return the USB host speed from the low level driver.
+ 279:USB_HOST/Target/usbh_conf.c ****   * @param  phost: Host handle
+ 280:USB_HOST/Target/usbh_conf.c ****   * @retval USBH speeds
+ 281:USB_HOST/Target/usbh_conf.c ****   */
+ 282:USB_HOST/Target/usbh_conf.c **** USBH_SpeedTypeDef USBH_LL_GetSpeed(USBH_HandleTypeDef *phost)
+ 283:USB_HOST/Target/usbh_conf.c **** {
+ 512              		.loc 1 283 1 view -0
+ 513              		.cfi_startproc
+ 514              		@ args = 0, pretend = 0, frame = 0
+ 515              		@ frame_needed = 0, uses_anonymous_args = 0
+ 516              		.loc 1 283 1 is_stmt 0 view .LVU114
+ 517 0000 08B5     		push	{r3, lr}
+ 518              	.LCFI11:
+ 519              		.cfi_def_cfa_offset 8
+ 520              		.cfi_offset 3, -8
+ 521              		.cfi_offset 14, -4
+ 284:USB_HOST/Target/usbh_conf.c ****   USBH_SpeedTypeDef speed = USBH_SPEED_FULL;
+ 522              		.loc 1 284 3 is_stmt 1 view .LVU115
+ 523              	.LVL40:
+ 285:USB_HOST/Target/usbh_conf.c **** 
+ 286:USB_HOST/Target/usbh_conf.c ****   switch (HAL_HCD_GetCurrentSpeed(phost->pData))
+ 524              		.loc 1 286 3 view .LVU116
+ 525              		.loc 1 286 11 is_stmt 0 view .LVU117
+ 526 0002 D0F8D003 		ldr	r0, [r0, #976]
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 16
+
+
+ 527              	.LVL41:
+ 528              		.loc 1 286 11 view .LVU118
+ 529 0006 FFF7FEFF 		bl	HAL_HCD_GetCurrentSpeed
+ 530              	.LVL42:
+ 531              		.loc 1 286 3 view .LVU119
+ 532 000a 0128     		cmp	r0, #1
+ 533 000c 04D0     		beq	.L37
+ 534 000e 0228     		cmp	r0, #2
+ 535 0010 04D0     		beq	.L38
+ 536 0012 00B1     		cbz	r0, .L36
+ 287:USB_HOST/Target/usbh_conf.c ****   {
+ 288:USB_HOST/Target/usbh_conf.c ****   case 0 :
+ 289:USB_HOST/Target/usbh_conf.c ****     speed = USBH_SPEED_HIGH;
+ 290:USB_HOST/Target/usbh_conf.c ****     break;
+ 291:USB_HOST/Target/usbh_conf.c **** 
+ 292:USB_HOST/Target/usbh_conf.c ****   case 1 :
+ 293:USB_HOST/Target/usbh_conf.c ****     speed = USBH_SPEED_FULL;
+ 294:USB_HOST/Target/usbh_conf.c ****     break;
+ 295:USB_HOST/Target/usbh_conf.c **** 
+ 296:USB_HOST/Target/usbh_conf.c ****   case 2 :
+ 297:USB_HOST/Target/usbh_conf.c ****     speed = USBH_SPEED_LOW;
+ 298:USB_HOST/Target/usbh_conf.c ****     break;
+ 299:USB_HOST/Target/usbh_conf.c **** 
+ 300:USB_HOST/Target/usbh_conf.c ****   default:
+ 301:USB_HOST/Target/usbh_conf.c ****    speed = USBH_SPEED_FULL;
+ 537              		.loc 1 301 10 view .LVU120
+ 538 0014 0120     		movs	r0, #1
+ 539              	.L36:
+ 540              	.LVL43:
+ 302:USB_HOST/Target/usbh_conf.c ****     break;
+ 303:USB_HOST/Target/usbh_conf.c ****   }
+ 304:USB_HOST/Target/usbh_conf.c ****   return  speed;
+ 541              		.loc 1 304 3 is_stmt 1 view .LVU121
+ 305:USB_HOST/Target/usbh_conf.c **** }
+ 542              		.loc 1 305 1 is_stmt 0 view .LVU122
+ 543 0016 08BD     		pop	{r3, pc}
+ 544              	.LVL44:
+ 545              	.L37:
+ 293:USB_HOST/Target/usbh_conf.c ****     break;
+ 546              		.loc 1 293 11 view .LVU123
+ 547 0018 0120     		movs	r0, #1
+ 548 001a FCE7     		b	.L36
+ 549              	.L38:
+ 297:USB_HOST/Target/usbh_conf.c ****     break;
+ 550              		.loc 1 297 11 view .LVU124
+ 551 001c 0220     		movs	r0, #2
+ 552 001e FAE7     		b	.L36
+ 553              		.cfi_endproc
+ 554              	.LFE145:
+ 556              		.section	.text.USBH_LL_GetLastXferSize,"ax",%progbits
+ 557              		.align	1
+ 558              		.global	USBH_LL_GetLastXferSize
+ 559              		.syntax unified
+ 560              		.thumb
+ 561              		.thumb_func
+ 563              	USBH_LL_GetLastXferSize:
+ 564              	.LVL45:
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 17
+
+
+ 565              	.LFB147:
+ 306:USB_HOST/Target/usbh_conf.c **** 
+ 307:USB_HOST/Target/usbh_conf.c **** /**
+ 308:USB_HOST/Target/usbh_conf.c ****   * @brief  Reset the Host port of the low level driver.
+ 309:USB_HOST/Target/usbh_conf.c ****   * @param  phost: Host handle
+ 310:USB_HOST/Target/usbh_conf.c ****   * @retval USBH status
+ 311:USB_HOST/Target/usbh_conf.c ****   */
+ 312:USB_HOST/Target/usbh_conf.c **** USBH_StatusTypeDef USBH_LL_ResetPort(USBH_HandleTypeDef *phost)
+ 313:USB_HOST/Target/usbh_conf.c **** {
+ 314:USB_HOST/Target/usbh_conf.c ****   HAL_StatusTypeDef hal_status = HAL_OK;
+ 315:USB_HOST/Target/usbh_conf.c ****   USBH_StatusTypeDef usb_status = USBH_OK;
+ 316:USB_HOST/Target/usbh_conf.c **** 
+ 317:USB_HOST/Target/usbh_conf.c ****   hal_status = HAL_HCD_ResetPort(phost->pData);
+ 318:USB_HOST/Target/usbh_conf.c **** 
+ 319:USB_HOST/Target/usbh_conf.c ****   usb_status = USBH_Get_USB_Status(hal_status);
+ 320:USB_HOST/Target/usbh_conf.c **** 
+ 321:USB_HOST/Target/usbh_conf.c ****   return usb_status;
+ 322:USB_HOST/Target/usbh_conf.c **** }
+ 323:USB_HOST/Target/usbh_conf.c **** 
+ 324:USB_HOST/Target/usbh_conf.c **** /**
+ 325:USB_HOST/Target/usbh_conf.c ****   * @brief  Return the last transferred packet size.
+ 326:USB_HOST/Target/usbh_conf.c ****   * @param  phost: Host handle
+ 327:USB_HOST/Target/usbh_conf.c ****   * @param  pipe: Pipe index
+ 328:USB_HOST/Target/usbh_conf.c ****   * @retval Packet size
+ 329:USB_HOST/Target/usbh_conf.c ****   */
+ 330:USB_HOST/Target/usbh_conf.c **** uint32_t USBH_LL_GetLastXferSize(USBH_HandleTypeDef *phost, uint8_t pipe)
+ 331:USB_HOST/Target/usbh_conf.c **** {
+ 566              		.loc 1 331 1 is_stmt 1 view -0
+ 567              		.cfi_startproc
+ 568              		@ args = 0, pretend = 0, frame = 0
+ 569              		@ frame_needed = 0, uses_anonymous_args = 0
+ 570              		.loc 1 331 1 is_stmt 0 view .LVU126
+ 571 0000 08B5     		push	{r3, lr}
+ 572              	.LCFI12:
+ 573              		.cfi_def_cfa_offset 8
+ 574              		.cfi_offset 3, -8
+ 575              		.cfi_offset 14, -4
+ 332:USB_HOST/Target/usbh_conf.c ****   return HAL_HCD_HC_GetXferCount(phost->pData, pipe);
+ 576              		.loc 1 332 3 is_stmt 1 view .LVU127
+ 577              		.loc 1 332 10 is_stmt 0 view .LVU128
+ 578 0002 D0F8D003 		ldr	r0, [r0, #976]
+ 579              	.LVL46:
+ 580              		.loc 1 332 10 view .LVU129
+ 581 0006 FFF7FEFF 		bl	HAL_HCD_HC_GetXferCount
+ 582              	.LVL47:
+ 333:USB_HOST/Target/usbh_conf.c **** }
+ 583              		.loc 1 333 1 view .LVU130
+ 584 000a 08BD     		pop	{r3, pc}
+ 585              		.cfi_endproc
+ 586              	.LFE147:
+ 588              		.section	.text.USBH_LL_GetURBState,"ax",%progbits
+ 589              		.align	1
+ 590              		.global	USBH_LL_GetURBState
+ 591              		.syntax unified
+ 592              		.thumb
+ 593              		.thumb_func
+ 595              	USBH_LL_GetURBState:
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 18
+
+
+ 596              	.LVL48:
+ 597              	.LFB151:
+ 334:USB_HOST/Target/usbh_conf.c **** 
+ 335:USB_HOST/Target/usbh_conf.c **** /**
+ 336:USB_HOST/Target/usbh_conf.c ****   * @brief  Open a pipe of the low level driver.
+ 337:USB_HOST/Target/usbh_conf.c ****   * @param  phost: Host handle
+ 338:USB_HOST/Target/usbh_conf.c ****   * @param  pipe_num: Pipe index
+ 339:USB_HOST/Target/usbh_conf.c ****   * @param  epnum: Endpoint number
+ 340:USB_HOST/Target/usbh_conf.c ****   * @param  dev_address: Device USB address
+ 341:USB_HOST/Target/usbh_conf.c ****   * @param  speed: Device Speed
+ 342:USB_HOST/Target/usbh_conf.c ****   * @param  ep_type: Endpoint type
+ 343:USB_HOST/Target/usbh_conf.c ****   * @param  mps: Endpoint max packet size
+ 344:USB_HOST/Target/usbh_conf.c ****   * @retval USBH status
+ 345:USB_HOST/Target/usbh_conf.c ****   */
+ 346:USB_HOST/Target/usbh_conf.c **** USBH_StatusTypeDef USBH_LL_OpenPipe(USBH_HandleTypeDef *phost, uint8_t pipe_num, uint8_t epnum,
+ 347:USB_HOST/Target/usbh_conf.c ****                                     uint8_t dev_address, uint8_t speed, uint8_t ep_type, uint16_t m
+ 348:USB_HOST/Target/usbh_conf.c **** {
+ 349:USB_HOST/Target/usbh_conf.c ****   HAL_StatusTypeDef hal_status = HAL_OK;
+ 350:USB_HOST/Target/usbh_conf.c ****   USBH_StatusTypeDef usb_status = USBH_OK;
+ 351:USB_HOST/Target/usbh_conf.c **** 
+ 352:USB_HOST/Target/usbh_conf.c ****   hal_status = HAL_HCD_HC_Init(phost->pData, pipe_num, epnum,
+ 353:USB_HOST/Target/usbh_conf.c ****                                dev_address, speed, ep_type, mps);
+ 354:USB_HOST/Target/usbh_conf.c **** 
+ 355:USB_HOST/Target/usbh_conf.c ****   usb_status = USBH_Get_USB_Status(hal_status);
+ 356:USB_HOST/Target/usbh_conf.c **** 
+ 357:USB_HOST/Target/usbh_conf.c ****   return usb_status;
+ 358:USB_HOST/Target/usbh_conf.c **** }
+ 359:USB_HOST/Target/usbh_conf.c **** 
+ 360:USB_HOST/Target/usbh_conf.c **** /**
+ 361:USB_HOST/Target/usbh_conf.c ****   * @brief  Close a pipe of the low level driver.
+ 362:USB_HOST/Target/usbh_conf.c ****   * @param  phost: Host handle
+ 363:USB_HOST/Target/usbh_conf.c ****   * @param  pipe: Pipe index
+ 364:USB_HOST/Target/usbh_conf.c ****   * @retval USBH status
+ 365:USB_HOST/Target/usbh_conf.c ****   */
+ 366:USB_HOST/Target/usbh_conf.c **** USBH_StatusTypeDef USBH_LL_ClosePipe(USBH_HandleTypeDef *phost, uint8_t pipe)
+ 367:USB_HOST/Target/usbh_conf.c **** {
+ 368:USB_HOST/Target/usbh_conf.c ****   HAL_StatusTypeDef hal_status = HAL_OK;
+ 369:USB_HOST/Target/usbh_conf.c ****   USBH_StatusTypeDef usb_status = USBH_OK;
+ 370:USB_HOST/Target/usbh_conf.c **** 
+ 371:USB_HOST/Target/usbh_conf.c ****   hal_status = HAL_HCD_HC_Halt(phost->pData, pipe);
+ 372:USB_HOST/Target/usbh_conf.c **** 
+ 373:USB_HOST/Target/usbh_conf.c ****   usb_status = USBH_Get_USB_Status(hal_status);
+ 374:USB_HOST/Target/usbh_conf.c **** 
+ 375:USB_HOST/Target/usbh_conf.c ****   return usb_status;
+ 376:USB_HOST/Target/usbh_conf.c **** }
+ 377:USB_HOST/Target/usbh_conf.c **** 
+ 378:USB_HOST/Target/usbh_conf.c **** /**
+ 379:USB_HOST/Target/usbh_conf.c ****   * @brief  Submit a new URB to the low level driver.
+ 380:USB_HOST/Target/usbh_conf.c ****   * @param  phost: Host handle
+ 381:USB_HOST/Target/usbh_conf.c ****   * @param  pipe: Pipe index
+ 382:USB_HOST/Target/usbh_conf.c ****   *         This parameter can be a value from 1 to 15
+ 383:USB_HOST/Target/usbh_conf.c ****   * @param  direction : Channel number
+ 384:USB_HOST/Target/usbh_conf.c ****   *          This parameter can be one of the these values:
+ 385:USB_HOST/Target/usbh_conf.c ****   *           0 : Output
+ 386:USB_HOST/Target/usbh_conf.c ****   *           1 : Input
+ 387:USB_HOST/Target/usbh_conf.c ****   * @param  ep_type : Endpoint Type
+ 388:USB_HOST/Target/usbh_conf.c ****   *          This parameter can be one of the these values:
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 19
+
+
+ 389:USB_HOST/Target/usbh_conf.c ****   *            @arg EP_TYPE_CTRL: Control type
+ 390:USB_HOST/Target/usbh_conf.c ****   *            @arg EP_TYPE_ISOC: Isochrounous type
+ 391:USB_HOST/Target/usbh_conf.c ****   *            @arg EP_TYPE_BULK: Bulk type
+ 392:USB_HOST/Target/usbh_conf.c ****   *            @arg EP_TYPE_INTR: Interrupt type
+ 393:USB_HOST/Target/usbh_conf.c ****   * @param  token : Endpoint Type
+ 394:USB_HOST/Target/usbh_conf.c ****   *          This parameter can be one of the these values:
+ 395:USB_HOST/Target/usbh_conf.c ****   *            @arg 0: PID_SETUP
+ 396:USB_HOST/Target/usbh_conf.c ****   *            @arg 1: PID_DATA
+ 397:USB_HOST/Target/usbh_conf.c ****   * @param  pbuff : pointer to URB data
+ 398:USB_HOST/Target/usbh_conf.c ****   * @param  length : Length of URB data
+ 399:USB_HOST/Target/usbh_conf.c ****   * @param  do_ping : activate do ping protocol (for high speed only)
+ 400:USB_HOST/Target/usbh_conf.c ****   *          This parameter can be one of the these values:
+ 401:USB_HOST/Target/usbh_conf.c ****   *           0 : do ping inactive
+ 402:USB_HOST/Target/usbh_conf.c ****   *           1 : do ping active
+ 403:USB_HOST/Target/usbh_conf.c ****   * @retval Status
+ 404:USB_HOST/Target/usbh_conf.c ****   */
+ 405:USB_HOST/Target/usbh_conf.c **** USBH_StatusTypeDef USBH_LL_SubmitURB(USBH_HandleTypeDef *phost, uint8_t pipe, uint8_t direction,
+ 406:USB_HOST/Target/usbh_conf.c ****                                      uint8_t ep_type, uint8_t token, uint8_t *pbuff, uint16_t lengt
+ 407:USB_HOST/Target/usbh_conf.c ****                                      uint8_t do_ping)
+ 408:USB_HOST/Target/usbh_conf.c **** {
+ 409:USB_HOST/Target/usbh_conf.c ****   HAL_StatusTypeDef hal_status = HAL_OK;
+ 410:USB_HOST/Target/usbh_conf.c ****   USBH_StatusTypeDef usb_status = USBH_OK;
+ 411:USB_HOST/Target/usbh_conf.c **** 
+ 412:USB_HOST/Target/usbh_conf.c ****   hal_status = HAL_HCD_HC_SubmitRequest(phost->pData, pipe, direction ,
+ 413:USB_HOST/Target/usbh_conf.c ****                                         ep_type, token, pbuff, length,
+ 414:USB_HOST/Target/usbh_conf.c ****                                         do_ping);
+ 415:USB_HOST/Target/usbh_conf.c ****   usb_status =  USBH_Get_USB_Status(hal_status);
+ 416:USB_HOST/Target/usbh_conf.c **** 
+ 417:USB_HOST/Target/usbh_conf.c ****   return usb_status;
+ 418:USB_HOST/Target/usbh_conf.c **** }
+ 419:USB_HOST/Target/usbh_conf.c **** 
+ 420:USB_HOST/Target/usbh_conf.c **** /**
+ 421:USB_HOST/Target/usbh_conf.c ****   * @brief  Get a URB state from the low level driver.
+ 422:USB_HOST/Target/usbh_conf.c ****   * @param  phost: Host handle
+ 423:USB_HOST/Target/usbh_conf.c ****   * @param  pipe: Pipe index
+ 424:USB_HOST/Target/usbh_conf.c ****   *         This parameter can be a value from 1 to 15
+ 425:USB_HOST/Target/usbh_conf.c ****   * @retval URB state
+ 426:USB_HOST/Target/usbh_conf.c ****   *          This parameter can be one of the these values:
+ 427:USB_HOST/Target/usbh_conf.c ****   *            @arg URB_IDLE
+ 428:USB_HOST/Target/usbh_conf.c ****   *            @arg URB_DONE
+ 429:USB_HOST/Target/usbh_conf.c ****   *            @arg URB_NOTREADY
+ 430:USB_HOST/Target/usbh_conf.c ****   *            @arg URB_NYET
+ 431:USB_HOST/Target/usbh_conf.c ****   *            @arg URB_ERROR
+ 432:USB_HOST/Target/usbh_conf.c ****   *            @arg URB_STALL
+ 433:USB_HOST/Target/usbh_conf.c ****   */
+ 434:USB_HOST/Target/usbh_conf.c **** USBH_URBStateTypeDef USBH_LL_GetURBState(USBH_HandleTypeDef *phost, uint8_t pipe)
+ 435:USB_HOST/Target/usbh_conf.c **** {
+ 598              		.loc 1 435 1 is_stmt 1 view -0
+ 599              		.cfi_startproc
+ 600              		@ args = 0, pretend = 0, frame = 0
+ 601              		@ frame_needed = 0, uses_anonymous_args = 0
+ 602              		.loc 1 435 1 is_stmt 0 view .LVU132
+ 603 0000 08B5     		push	{r3, lr}
+ 604              	.LCFI13:
+ 605              		.cfi_def_cfa_offset 8
+ 606              		.cfi_offset 3, -8
+ 607              		.cfi_offset 14, -4
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 20
+
+
+ 436:USB_HOST/Target/usbh_conf.c ****   return (USBH_URBStateTypeDef)HAL_HCD_HC_GetURBState (phost->pData, pipe);
+ 608              		.loc 1 436 3 is_stmt 1 view .LVU133
+ 609              		.loc 1 436 32 is_stmt 0 view .LVU134
+ 610 0002 D0F8D003 		ldr	r0, [r0, #976]
+ 611              	.LVL49:
+ 612              		.loc 1 436 32 view .LVU135
+ 613 0006 FFF7FEFF 		bl	HAL_HCD_HC_GetURBState
+ 614              	.LVL50:
+ 437:USB_HOST/Target/usbh_conf.c **** }
+ 615              		.loc 1 437 1 view .LVU136
+ 616 000a 08BD     		pop	{r3, pc}
+ 617              		.cfi_endproc
+ 618              	.LFE151:
+ 620              		.section	.text.USBH_LL_DriverVBUS,"ax",%progbits
+ 621              		.align	1
+ 622              		.global	USBH_LL_DriverVBUS
+ 623              		.syntax unified
+ 624              		.thumb
+ 625              		.thumb_func
+ 627              	USBH_LL_DriverVBUS:
+ 628              	.LVL51:
+ 629              	.LFB152:
+ 438:USB_HOST/Target/usbh_conf.c **** 
+ 439:USB_HOST/Target/usbh_conf.c **** /**
+ 440:USB_HOST/Target/usbh_conf.c ****   * @brief  Drive VBUS.
+ 441:USB_HOST/Target/usbh_conf.c ****   * @param  phost: Host handle
+ 442:USB_HOST/Target/usbh_conf.c ****   * @param  state : VBUS state
+ 443:USB_HOST/Target/usbh_conf.c ****   *          This parameter can be one of the these values:
+ 444:USB_HOST/Target/usbh_conf.c ****   *           0 : VBUS Inactive
+ 445:USB_HOST/Target/usbh_conf.c ****   *           1 : VBUS Active
+ 446:USB_HOST/Target/usbh_conf.c ****   * @retval Status
+ 447:USB_HOST/Target/usbh_conf.c ****   */
+ 448:USB_HOST/Target/usbh_conf.c **** USBH_StatusTypeDef USBH_LL_DriverVBUS(USBH_HandleTypeDef *phost, uint8_t state)
+ 449:USB_HOST/Target/usbh_conf.c **** {
+ 630              		.loc 1 449 1 is_stmt 1 view -0
+ 631              		.cfi_startproc
+ 632              		@ args = 0, pretend = 0, frame = 0
+ 633              		@ frame_needed = 0, uses_anonymous_args = 0
+ 634              		.loc 1 449 1 is_stmt 0 view .LVU138
+ 635 0000 08B5     		push	{r3, lr}
+ 636              	.LCFI14:
+ 637              		.cfi_def_cfa_offset 8
+ 638              		.cfi_offset 3, -8
+ 639              		.cfi_offset 14, -4
+ 450:USB_HOST/Target/usbh_conf.c ****   if (phost->id == HOST_FS) {
+ 640              		.loc 1 450 3 is_stmt 1 view .LVU139
+ 641              		.loc 1 450 12 is_stmt 0 view .LVU140
+ 642 0002 90F8CC33 		ldrb	r3, [r0, #972]	@ zero_extendqisi2
+ 643              		.loc 1 450 6 view .LVU141
+ 644 0006 012B     		cmp	r3, #1
+ 645 0008 04D0     		beq	.L48
+ 646              	.LVL52:
+ 647              	.L46:
+ 451:USB_HOST/Target/usbh_conf.c ****     MX_DriverVbusFS(state);
+ 452:USB_HOST/Target/usbh_conf.c ****   }
+ 453:USB_HOST/Target/usbh_conf.c **** 
+ 454:USB_HOST/Target/usbh_conf.c ****   /* USER CODE BEGIN 0 */
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 21
+
+
+ 455:USB_HOST/Target/usbh_conf.c **** 
+ 456:USB_HOST/Target/usbh_conf.c ****   /* USER CODE END 0*/
+ 457:USB_HOST/Target/usbh_conf.c **** 
+ 458:USB_HOST/Target/usbh_conf.c ****   HAL_Delay(200);
+ 648              		.loc 1 458 3 is_stmt 1 view .LVU142
+ 649 000a C820     		movs	r0, #200
+ 650 000c FFF7FEFF 		bl	HAL_Delay
+ 651              	.LVL53:
+ 459:USB_HOST/Target/usbh_conf.c ****   return USBH_OK;
+ 652              		.loc 1 459 3 view .LVU143
+ 460:USB_HOST/Target/usbh_conf.c **** }
+ 653              		.loc 1 460 1 is_stmt 0 view .LVU144
+ 654 0010 0020     		movs	r0, #0
+ 655 0012 08BD     		pop	{r3, pc}
+ 656              	.LVL54:
+ 657              	.L48:
+ 451:USB_HOST/Target/usbh_conf.c ****     MX_DriverVbusFS(state);
+ 658              		.loc 1 451 5 is_stmt 1 view .LVU145
+ 659 0014 0846     		mov	r0, r1
+ 660              	.LVL55:
+ 451:USB_HOST/Target/usbh_conf.c ****     MX_DriverVbusFS(state);
+ 661              		.loc 1 451 5 is_stmt 0 view .LVU146
+ 662 0016 FFF7FEFF 		bl	MX_DriverVbusFS
+ 663              	.LVL56:
+ 451:USB_HOST/Target/usbh_conf.c ****     MX_DriverVbusFS(state);
+ 664              		.loc 1 451 5 view .LVU147
+ 665 001a F6E7     		b	.L46
+ 666              		.cfi_endproc
+ 667              	.LFE152:
+ 669              		.section	.text.USBH_LL_SetToggle,"ax",%progbits
+ 670              		.align	1
+ 671              		.global	USBH_LL_SetToggle
+ 672              		.syntax unified
+ 673              		.thumb
+ 674              		.thumb_func
+ 676              	USBH_LL_SetToggle:
+ 677              	.LVL57:
+ 678              	.LFB153:
+ 461:USB_HOST/Target/usbh_conf.c **** 
+ 462:USB_HOST/Target/usbh_conf.c **** /**
+ 463:USB_HOST/Target/usbh_conf.c ****   * @brief  Set toggle for a pipe.
+ 464:USB_HOST/Target/usbh_conf.c ****   * @param  phost: Host handle
+ 465:USB_HOST/Target/usbh_conf.c ****   * @param  pipe: Pipe index
+ 466:USB_HOST/Target/usbh_conf.c ****   * @param  toggle: toggle (0/1)
+ 467:USB_HOST/Target/usbh_conf.c ****   * @retval Status
+ 468:USB_HOST/Target/usbh_conf.c ****   */
+ 469:USB_HOST/Target/usbh_conf.c **** USBH_StatusTypeDef USBH_LL_SetToggle(USBH_HandleTypeDef *phost, uint8_t pipe, uint8_t toggle)
+ 470:USB_HOST/Target/usbh_conf.c **** {
+ 679              		.loc 1 470 1 is_stmt 1 view -0
+ 680              		.cfi_startproc
+ 681              		@ args = 0, pretend = 0, frame = 0
+ 682              		@ frame_needed = 0, uses_anonymous_args = 0
+ 683              		@ link register save eliminated.
+ 471:USB_HOST/Target/usbh_conf.c ****   HCD_HandleTypeDef *pHandle;
+ 684              		.loc 1 471 3 view .LVU149
+ 472:USB_HOST/Target/usbh_conf.c ****   pHandle = phost->pData;
+ 685              		.loc 1 472 3 view .LVU150
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 22
+
+
+ 686              		.loc 1 472 11 is_stmt 0 view .LVU151
+ 687 0000 D0F8D033 		ldr	r3, [r0, #976]
+ 688              	.LVL58:
+ 473:USB_HOST/Target/usbh_conf.c **** 
+ 474:USB_HOST/Target/usbh_conf.c ****   if(pHandle->hc[pipe].ep_is_in)
+ 689              		.loc 1 474 3 is_stmt 1 view .LVU152
+ 690              		.loc 1 474 23 is_stmt 0 view .LVU153
+ 691 0004 2C20     		movs	r0, #44
+ 692              	.LVL59:
+ 693              		.loc 1 474 23 view .LVU154
+ 694 0006 00FB0130 		mla	r0, r0, r1, r3
+ 695 000a 90F83B00 		ldrb	r0, [r0, #59]	@ zero_extendqisi2
+ 696              		.loc 1 474 5 view .LVU155
+ 697 000e 30B1     		cbz	r0, .L50
+ 475:USB_HOST/Target/usbh_conf.c ****   {
+ 476:USB_HOST/Target/usbh_conf.c ****     pHandle->hc[pipe].toggle_in = toggle;
+ 698              		.loc 1 476 5 is_stmt 1 view .LVU156
+ 699              		.loc 1 476 33 is_stmt 0 view .LVU157
+ 700 0010 2C20     		movs	r0, #44
+ 701 0012 00FB0133 		mla	r3, r0, r1, r3
+ 702              	.LVL60:
+ 703              		.loc 1 476 33 view .LVU158
+ 704 0016 83F85420 		strb	r2, [r3, #84]
+ 705              	.LVL61:
+ 706              	.L51:
+ 477:USB_HOST/Target/usbh_conf.c ****   }
+ 478:USB_HOST/Target/usbh_conf.c ****   else
+ 479:USB_HOST/Target/usbh_conf.c ****   {
+ 480:USB_HOST/Target/usbh_conf.c ****     pHandle->hc[pipe].toggle_out = toggle;
+ 481:USB_HOST/Target/usbh_conf.c ****   }
+ 482:USB_HOST/Target/usbh_conf.c **** 
+ 483:USB_HOST/Target/usbh_conf.c ****   return USBH_OK;
+ 707              		.loc 1 483 3 is_stmt 1 view .LVU159
+ 484:USB_HOST/Target/usbh_conf.c **** }
+ 708              		.loc 1 484 1 is_stmt 0 view .LVU160
+ 709 001a 0020     		movs	r0, #0
+ 710 001c 7047     		bx	lr
+ 711              	.LVL62:
+ 712              	.L50:
+ 480:USB_HOST/Target/usbh_conf.c ****   }
+ 713              		.loc 1 480 5 is_stmt 1 view .LVU161
+ 480:USB_HOST/Target/usbh_conf.c ****   }
+ 714              		.loc 1 480 34 is_stmt 0 view .LVU162
+ 715 001e 2C20     		movs	r0, #44
+ 716 0020 00FB0133 		mla	r3, r0, r1, r3
+ 717              	.LVL63:
+ 480:USB_HOST/Target/usbh_conf.c ****   }
+ 718              		.loc 1 480 34 view .LVU163
+ 719 0024 83F85520 		strb	r2, [r3, #85]
+ 720              	.LVL64:
+ 480:USB_HOST/Target/usbh_conf.c ****   }
+ 721              		.loc 1 480 34 view .LVU164
+ 722 0028 F7E7     		b	.L51
+ 723              		.cfi_endproc
+ 724              	.LFE153:
+ 726              		.section	.text.USBH_LL_GetToggle,"ax",%progbits
+ 727              		.align	1
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 23
+
+
+ 728              		.global	USBH_LL_GetToggle
+ 729              		.syntax unified
+ 730              		.thumb
+ 731              		.thumb_func
+ 733              	USBH_LL_GetToggle:
+ 734              	.LVL65:
+ 735              	.LFB154:
+ 485:USB_HOST/Target/usbh_conf.c **** 
+ 486:USB_HOST/Target/usbh_conf.c **** /**
+ 487:USB_HOST/Target/usbh_conf.c ****   * @brief  Return the current toggle of a pipe.
+ 488:USB_HOST/Target/usbh_conf.c ****   * @param  phost: Host handle
+ 489:USB_HOST/Target/usbh_conf.c ****   * @param  pipe: Pipe index
+ 490:USB_HOST/Target/usbh_conf.c ****   * @retval toggle (0/1)
+ 491:USB_HOST/Target/usbh_conf.c ****   */
+ 492:USB_HOST/Target/usbh_conf.c **** uint8_t USBH_LL_GetToggle(USBH_HandleTypeDef *phost, uint8_t pipe)
+ 493:USB_HOST/Target/usbh_conf.c **** {
+ 736              		.loc 1 493 1 is_stmt 1 view -0
+ 737              		.cfi_startproc
+ 738              		@ args = 0, pretend = 0, frame = 0
+ 739              		@ frame_needed = 0, uses_anonymous_args = 0
+ 740              		@ link register save eliminated.
+ 494:USB_HOST/Target/usbh_conf.c ****   uint8_t toggle = 0;
+ 741              		.loc 1 494 3 view .LVU166
+ 495:USB_HOST/Target/usbh_conf.c ****   HCD_HandleTypeDef *pHandle;
+ 742              		.loc 1 495 3 view .LVU167
+ 496:USB_HOST/Target/usbh_conf.c ****   pHandle = phost->pData;
+ 743              		.loc 1 496 3 view .LVU168
+ 744              		.loc 1 496 11 is_stmt 0 view .LVU169
+ 745 0000 D0F8D033 		ldr	r3, [r0, #976]
+ 746              	.LVL66:
+ 497:USB_HOST/Target/usbh_conf.c **** 
+ 498:USB_HOST/Target/usbh_conf.c ****   if(pHandle->hc[pipe].ep_is_in)
+ 747              		.loc 1 498 3 is_stmt 1 view .LVU170
+ 748              		.loc 1 498 23 is_stmt 0 view .LVU171
+ 749 0004 2C22     		movs	r2, #44
+ 750 0006 02FB0132 		mla	r2, r2, r1, r3
+ 751 000a 92F83B20 		ldrb	r2, [r2, #59]	@ zero_extendqisi2
+ 752              		.loc 1 498 5 view .LVU172
+ 753 000e 2AB1     		cbz	r2, .L53
+ 499:USB_HOST/Target/usbh_conf.c ****   {
+ 500:USB_HOST/Target/usbh_conf.c ****     toggle = pHandle->hc[pipe].toggle_in;
+ 754              		.loc 1 500 5 is_stmt 1 view .LVU173
+ 755              		.loc 1 500 12 is_stmt 0 view .LVU174
+ 756 0010 2C22     		movs	r2, #44
+ 757 0012 02FB0133 		mla	r3, r2, r1, r3
+ 758              	.LVL67:
+ 759              		.loc 1 500 12 view .LVU175
+ 760 0016 93F85400 		ldrb	r0, [r3, #84]	@ zero_extendqisi2
+ 761              	.LVL68:
+ 762              		.loc 1 500 12 view .LVU176
+ 763 001a 7047     		bx	lr
+ 764              	.LVL69:
+ 765              	.L53:
+ 501:USB_HOST/Target/usbh_conf.c ****   }
+ 502:USB_HOST/Target/usbh_conf.c ****   else
+ 503:USB_HOST/Target/usbh_conf.c ****   {
+ 504:USB_HOST/Target/usbh_conf.c ****     toggle = pHandle->hc[pipe].toggle_out;
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 24
+
+
+ 766              		.loc 1 504 5 is_stmt 1 view .LVU177
+ 767              		.loc 1 504 12 is_stmt 0 view .LVU178
+ 768 001c 2C22     		movs	r2, #44
+ 769 001e 02FB0133 		mla	r3, r2, r1, r3
+ 770              	.LVL70:
+ 771              		.loc 1 504 12 view .LVU179
+ 772 0022 93F85500 		ldrb	r0, [r3, #85]	@ zero_extendqisi2
+ 773              	.LVL71:
+ 505:USB_HOST/Target/usbh_conf.c ****   }
+ 506:USB_HOST/Target/usbh_conf.c ****   return toggle;
+ 774              		.loc 1 506 3 is_stmt 1 view .LVU180
+ 507:USB_HOST/Target/usbh_conf.c **** }
+ 775              		.loc 1 507 1 is_stmt 0 view .LVU181
+ 776 0026 7047     		bx	lr
+ 777              		.cfi_endproc
+ 778              	.LFE154:
+ 780              		.section	.text.USBH_Delay,"ax",%progbits
+ 781              		.align	1
+ 782              		.global	USBH_Delay
+ 783              		.syntax unified
+ 784              		.thumb
+ 785              		.thumb_func
+ 787              	USBH_Delay:
+ 788              	.LVL72:
+ 789              	.LFB155:
+ 508:USB_HOST/Target/usbh_conf.c **** 
+ 509:USB_HOST/Target/usbh_conf.c **** /**
+ 510:USB_HOST/Target/usbh_conf.c ****   * @brief  Delay routine for the USB Host Library
+ 511:USB_HOST/Target/usbh_conf.c ****   * @param  Delay: Delay in ms
+ 512:USB_HOST/Target/usbh_conf.c ****   * @retval None
+ 513:USB_HOST/Target/usbh_conf.c ****   */
+ 514:USB_HOST/Target/usbh_conf.c **** void USBH_Delay(uint32_t Delay)
+ 515:USB_HOST/Target/usbh_conf.c **** {
+ 790              		.loc 1 515 1 is_stmt 1 view -0
+ 791              		.cfi_startproc
+ 792              		@ args = 0, pretend = 0, frame = 0
+ 793              		@ frame_needed = 0, uses_anonymous_args = 0
+ 794              		.loc 1 515 1 is_stmt 0 view .LVU183
+ 795 0000 08B5     		push	{r3, lr}
+ 796              	.LCFI15:
+ 797              		.cfi_def_cfa_offset 8
+ 798              		.cfi_offset 3, -8
+ 799              		.cfi_offset 14, -4
+ 516:USB_HOST/Target/usbh_conf.c ****   HAL_Delay(Delay);
+ 800              		.loc 1 516 3 is_stmt 1 view .LVU184
+ 801 0002 FFF7FEFF 		bl	HAL_Delay
+ 802              	.LVL73:
+ 517:USB_HOST/Target/usbh_conf.c **** }
+ 803              		.loc 1 517 1 is_stmt 0 view .LVU185
+ 804 0006 08BD     		pop	{r3, pc}
+ 805              		.cfi_endproc
+ 806              	.LFE155:
+ 808              		.section	.text.USBH_Get_USB_Status,"ax",%progbits
+ 809              		.align	1
+ 810              		.global	USBH_Get_USB_Status
+ 811              		.syntax unified
+ 812              		.thumb
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 25
+
+
+ 813              		.thumb_func
+ 815              	USBH_Get_USB_Status:
+ 816              	.LVL74:
+ 817              	.LFB156:
+ 518:USB_HOST/Target/usbh_conf.c **** 
+ 519:USB_HOST/Target/usbh_conf.c **** /**
+ 520:USB_HOST/Target/usbh_conf.c ****   * @brief  Returns the USB status depending on the HAL status:
+ 521:USB_HOST/Target/usbh_conf.c ****   * @param  hal_status: HAL status
+ 522:USB_HOST/Target/usbh_conf.c ****   * @retval USB status
+ 523:USB_HOST/Target/usbh_conf.c ****   */
+ 524:USB_HOST/Target/usbh_conf.c **** USBH_StatusTypeDef USBH_Get_USB_Status(HAL_StatusTypeDef hal_status)
+ 525:USB_HOST/Target/usbh_conf.c **** {
+ 818              		.loc 1 525 1 is_stmt 1 view -0
+ 819              		.cfi_startproc
+ 820              		@ args = 0, pretend = 0, frame = 0
+ 821              		@ frame_needed = 0, uses_anonymous_args = 0
+ 822              		@ link register save eliminated.
+ 526:USB_HOST/Target/usbh_conf.c ****   USBH_StatusTypeDef usb_status = USBH_OK;
+ 823              		.loc 1 526 3 view .LVU187
+ 527:USB_HOST/Target/usbh_conf.c **** 
+ 528:USB_HOST/Target/usbh_conf.c ****   switch (hal_status)
+ 824              		.loc 1 528 3 view .LVU188
+ 825 0000 0228     		cmp	r0, #2
+ 826 0002 05D8     		bhi	.L62
+ 827 0004 DFE800F0 		tbb	[pc, r0]
+ 828              	.L60:
+ 829 0008 05       		.byte	(.L58-.L60)/2
+ 830 0009 04       		.byte	(.L62-.L60)/2
+ 831 000a 02       		.byte	(.L59-.L60)/2
+ 832 000b 00       		.p2align 1
+ 833              	.L59:
+ 529:USB_HOST/Target/usbh_conf.c ****   {
+ 530:USB_HOST/Target/usbh_conf.c ****     case HAL_OK :
+ 531:USB_HOST/Target/usbh_conf.c ****       usb_status = USBH_OK;
+ 532:USB_HOST/Target/usbh_conf.c ****     break;
+ 533:USB_HOST/Target/usbh_conf.c ****     case HAL_ERROR :
+ 534:USB_HOST/Target/usbh_conf.c ****       usb_status = USBH_FAIL;
+ 535:USB_HOST/Target/usbh_conf.c ****     break;
+ 536:USB_HOST/Target/usbh_conf.c ****     case HAL_BUSY :
+ 537:USB_HOST/Target/usbh_conf.c ****       usb_status = USBH_BUSY;
+ 834              		.loc 1 537 7 view .LVU189
+ 835              	.LVL75:
+ 538:USB_HOST/Target/usbh_conf.c ****     break;
+ 836              		.loc 1 538 5 view .LVU190
+ 537:USB_HOST/Target/usbh_conf.c ****     break;
+ 837              		.loc 1 537 18 is_stmt 0 view .LVU191
+ 838 000c 0120     		movs	r0, #1
+ 839              	.LVL76:
+ 840              		.loc 1 538 5 view .LVU192
+ 841 000e 7047     		bx	lr
+ 842              	.LVL77:
+ 843              	.L62:
+ 534:USB_HOST/Target/usbh_conf.c ****     break;
+ 844              		.loc 1 534 18 view .LVU193
+ 845 0010 0220     		movs	r0, #2
+ 846              	.LVL78:
+ 847              	.L58:
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 26
+
+
+ 539:USB_HOST/Target/usbh_conf.c ****     case HAL_TIMEOUT :
+ 540:USB_HOST/Target/usbh_conf.c ****       usb_status = USBH_FAIL;
+ 541:USB_HOST/Target/usbh_conf.c ****     break;
+ 542:USB_HOST/Target/usbh_conf.c ****     default :
+ 543:USB_HOST/Target/usbh_conf.c ****       usb_status = USBH_FAIL;
+ 544:USB_HOST/Target/usbh_conf.c ****     break;
+ 545:USB_HOST/Target/usbh_conf.c ****   }
+ 546:USB_HOST/Target/usbh_conf.c ****   return usb_status;
+ 848              		.loc 1 546 3 is_stmt 1 view .LVU194
+ 547:USB_HOST/Target/usbh_conf.c **** }
+ 849              		.loc 1 547 1 is_stmt 0 view .LVU195
+ 850 0012 7047     		bx	lr
+ 851              		.cfi_endproc
+ 852              	.LFE156:
+ 854              		.section	.text.USBH_LL_DeInit,"ax",%progbits
+ 855              		.align	1
+ 856              		.global	USBH_LL_DeInit
+ 857              		.syntax unified
+ 858              		.thumb
+ 859              		.thumb_func
+ 861              	USBH_LL_DeInit:
+ 862              	.LVL79:
+ 863              	.LFB142:
+ 232:USB_HOST/Target/usbh_conf.c ****   HAL_StatusTypeDef hal_status = HAL_OK;
+ 864              		.loc 1 232 1 is_stmt 1 view -0
+ 865              		.cfi_startproc
+ 866              		@ args = 0, pretend = 0, frame = 0
+ 867              		@ frame_needed = 0, uses_anonymous_args = 0
+ 232:USB_HOST/Target/usbh_conf.c ****   HAL_StatusTypeDef hal_status = HAL_OK;
+ 868              		.loc 1 232 1 is_stmt 0 view .LVU197
+ 869 0000 08B5     		push	{r3, lr}
+ 870              	.LCFI16:
+ 871              		.cfi_def_cfa_offset 8
+ 872              		.cfi_offset 3, -8
+ 873              		.cfi_offset 14, -4
+ 233:USB_HOST/Target/usbh_conf.c ****   USBH_StatusTypeDef usb_status = USBH_OK;
+ 874              		.loc 1 233 3 is_stmt 1 view .LVU198
+ 875              	.LVL80:
+ 234:USB_HOST/Target/usbh_conf.c **** 
+ 876              		.loc 1 234 3 view .LVU199
+ 236:USB_HOST/Target/usbh_conf.c **** 
+ 877              		.loc 1 236 3 view .LVU200
+ 236:USB_HOST/Target/usbh_conf.c **** 
+ 878              		.loc 1 236 16 is_stmt 0 view .LVU201
+ 879 0002 D0F8D003 		ldr	r0, [r0, #976]
+ 880              	.LVL81:
+ 236:USB_HOST/Target/usbh_conf.c **** 
+ 881              		.loc 1 236 16 view .LVU202
+ 882 0006 FFF7FEFF 		bl	HAL_HCD_DeInit
+ 883              	.LVL82:
+ 238:USB_HOST/Target/usbh_conf.c **** 
+ 884              		.loc 1 238 3 is_stmt 1 view .LVU203
+ 238:USB_HOST/Target/usbh_conf.c **** 
+ 885              		.loc 1 238 16 is_stmt 0 view .LVU204
+ 886 000a FFF7FEFF 		bl	USBH_Get_USB_Status
+ 887              	.LVL83:
+ 240:USB_HOST/Target/usbh_conf.c **** }
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 27
+
+
+ 888              		.loc 1 240 3 is_stmt 1 view .LVU205
+ 241:USB_HOST/Target/usbh_conf.c **** 
+ 889              		.loc 1 241 1 is_stmt 0 view .LVU206
+ 890 000e 08BD     		pop	{r3, pc}
+ 891              		.cfi_endproc
+ 892              	.LFE142:
+ 894              		.section	.text.USBH_LL_Start,"ax",%progbits
+ 895              		.align	1
+ 896              		.global	USBH_LL_Start
+ 897              		.syntax unified
+ 898              		.thumb
+ 899              		.thumb_func
+ 901              	USBH_LL_Start:
+ 902              	.LVL84:
+ 903              	.LFB143:
+ 249:USB_HOST/Target/usbh_conf.c ****   HAL_StatusTypeDef hal_status = HAL_OK;
+ 904              		.loc 1 249 1 is_stmt 1 view -0
+ 905              		.cfi_startproc
+ 906              		@ args = 0, pretend = 0, frame = 0
+ 907              		@ frame_needed = 0, uses_anonymous_args = 0
+ 249:USB_HOST/Target/usbh_conf.c ****   HAL_StatusTypeDef hal_status = HAL_OK;
+ 908              		.loc 1 249 1 is_stmt 0 view .LVU208
+ 909 0000 08B5     		push	{r3, lr}
+ 910              	.LCFI17:
+ 911              		.cfi_def_cfa_offset 8
+ 912              		.cfi_offset 3, -8
+ 913              		.cfi_offset 14, -4
+ 250:USB_HOST/Target/usbh_conf.c ****   USBH_StatusTypeDef usb_status = USBH_OK;
+ 914              		.loc 1 250 3 is_stmt 1 view .LVU209
+ 915              	.LVL85:
+ 251:USB_HOST/Target/usbh_conf.c **** 
+ 916              		.loc 1 251 3 view .LVU210
+ 253:USB_HOST/Target/usbh_conf.c **** 
+ 917              		.loc 1 253 3 view .LVU211
+ 253:USB_HOST/Target/usbh_conf.c **** 
+ 918              		.loc 1 253 16 is_stmt 0 view .LVU212
+ 919 0002 D0F8D003 		ldr	r0, [r0, #976]
+ 920              	.LVL86:
+ 253:USB_HOST/Target/usbh_conf.c **** 
+ 921              		.loc 1 253 16 view .LVU213
+ 922 0006 FFF7FEFF 		bl	HAL_HCD_Start
+ 923              	.LVL87:
+ 255:USB_HOST/Target/usbh_conf.c **** 
+ 924              		.loc 1 255 3 is_stmt 1 view .LVU214
+ 255:USB_HOST/Target/usbh_conf.c **** 
+ 925              		.loc 1 255 16 is_stmt 0 view .LVU215
+ 926 000a FFF7FEFF 		bl	USBH_Get_USB_Status
+ 927              	.LVL88:
+ 257:USB_HOST/Target/usbh_conf.c **** }
+ 928              		.loc 1 257 3 is_stmt 1 view .LVU216
+ 258:USB_HOST/Target/usbh_conf.c **** 
+ 929              		.loc 1 258 1 is_stmt 0 view .LVU217
+ 930 000e 08BD     		pop	{r3, pc}
+ 931              		.cfi_endproc
+ 932              	.LFE143:
+ 934              		.section	.text.USBH_LL_Stop,"ax",%progbits
+ 935              		.align	1
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 28
+
+
+ 936              		.global	USBH_LL_Stop
+ 937              		.syntax unified
+ 938              		.thumb
+ 939              		.thumb_func
+ 941              	USBH_LL_Stop:
+ 942              	.LVL89:
+ 943              	.LFB144:
+ 266:USB_HOST/Target/usbh_conf.c ****   HAL_StatusTypeDef hal_status = HAL_OK;
+ 944              		.loc 1 266 1 is_stmt 1 view -0
+ 945              		.cfi_startproc
+ 946              		@ args = 0, pretend = 0, frame = 0
+ 947              		@ frame_needed = 0, uses_anonymous_args = 0
+ 266:USB_HOST/Target/usbh_conf.c ****   HAL_StatusTypeDef hal_status = HAL_OK;
+ 948              		.loc 1 266 1 is_stmt 0 view .LVU219
+ 949 0000 08B5     		push	{r3, lr}
+ 950              	.LCFI18:
+ 951              		.cfi_def_cfa_offset 8
+ 952              		.cfi_offset 3, -8
+ 953              		.cfi_offset 14, -4
+ 267:USB_HOST/Target/usbh_conf.c ****   USBH_StatusTypeDef usb_status = USBH_OK;
+ 954              		.loc 1 267 3 is_stmt 1 view .LVU220
+ 955              	.LVL90:
+ 268:USB_HOST/Target/usbh_conf.c **** 
+ 956              		.loc 1 268 3 view .LVU221
+ 270:USB_HOST/Target/usbh_conf.c **** 
+ 957              		.loc 1 270 3 view .LVU222
+ 270:USB_HOST/Target/usbh_conf.c **** 
+ 958              		.loc 1 270 16 is_stmt 0 view .LVU223
+ 959 0002 D0F8D003 		ldr	r0, [r0, #976]
+ 960              	.LVL91:
+ 270:USB_HOST/Target/usbh_conf.c **** 
+ 961              		.loc 1 270 16 view .LVU224
+ 962 0006 FFF7FEFF 		bl	HAL_HCD_Stop
+ 963              	.LVL92:
+ 272:USB_HOST/Target/usbh_conf.c **** 
+ 964              		.loc 1 272 3 is_stmt 1 view .LVU225
+ 272:USB_HOST/Target/usbh_conf.c **** 
+ 965              		.loc 1 272 16 is_stmt 0 view .LVU226
+ 966 000a FFF7FEFF 		bl	USBH_Get_USB_Status
+ 967              	.LVL93:
+ 274:USB_HOST/Target/usbh_conf.c **** }
+ 968              		.loc 1 274 3 is_stmt 1 view .LVU227
+ 275:USB_HOST/Target/usbh_conf.c **** 
+ 969              		.loc 1 275 1 is_stmt 0 view .LVU228
+ 970 000e 08BD     		pop	{r3, pc}
+ 971              		.cfi_endproc
+ 972              	.LFE144:
+ 974              		.section	.text.USBH_LL_ResetPort,"ax",%progbits
+ 975              		.align	1
+ 976              		.global	USBH_LL_ResetPort
+ 977              		.syntax unified
+ 978              		.thumb
+ 979              		.thumb_func
+ 981              	USBH_LL_ResetPort:
+ 982              	.LVL94:
+ 983              	.LFB146:
+ 313:USB_HOST/Target/usbh_conf.c ****   HAL_StatusTypeDef hal_status = HAL_OK;
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 29
+
+
+ 984              		.loc 1 313 1 is_stmt 1 view -0
+ 985              		.cfi_startproc
+ 986              		@ args = 0, pretend = 0, frame = 0
+ 987              		@ frame_needed = 0, uses_anonymous_args = 0
+ 313:USB_HOST/Target/usbh_conf.c ****   HAL_StatusTypeDef hal_status = HAL_OK;
+ 988              		.loc 1 313 1 is_stmt 0 view .LVU230
+ 989 0000 08B5     		push	{r3, lr}
+ 990              	.LCFI19:
+ 991              		.cfi_def_cfa_offset 8
+ 992              		.cfi_offset 3, -8
+ 993              		.cfi_offset 14, -4
+ 314:USB_HOST/Target/usbh_conf.c ****   USBH_StatusTypeDef usb_status = USBH_OK;
+ 994              		.loc 1 314 3 is_stmt 1 view .LVU231
+ 995              	.LVL95:
+ 315:USB_HOST/Target/usbh_conf.c **** 
+ 996              		.loc 1 315 3 view .LVU232
+ 317:USB_HOST/Target/usbh_conf.c **** 
+ 997              		.loc 1 317 3 view .LVU233
+ 317:USB_HOST/Target/usbh_conf.c **** 
+ 998              		.loc 1 317 16 is_stmt 0 view .LVU234
+ 999 0002 D0F8D003 		ldr	r0, [r0, #976]
+ 1000              	.LVL96:
+ 317:USB_HOST/Target/usbh_conf.c **** 
+ 1001              		.loc 1 317 16 view .LVU235
+ 1002 0006 FFF7FEFF 		bl	HAL_HCD_ResetPort
+ 1003              	.LVL97:
+ 319:USB_HOST/Target/usbh_conf.c **** 
+ 1004              		.loc 1 319 3 is_stmt 1 view .LVU236
+ 319:USB_HOST/Target/usbh_conf.c **** 
+ 1005              		.loc 1 319 16 is_stmt 0 view .LVU237
+ 1006 000a FFF7FEFF 		bl	USBH_Get_USB_Status
+ 1007              	.LVL98:
+ 321:USB_HOST/Target/usbh_conf.c **** }
+ 1008              		.loc 1 321 3 is_stmt 1 view .LVU238
+ 322:USB_HOST/Target/usbh_conf.c **** 
+ 1009              		.loc 1 322 1 is_stmt 0 view .LVU239
+ 1010 000e 08BD     		pop	{r3, pc}
+ 1011              		.cfi_endproc
+ 1012              	.LFE146:
+ 1014              		.section	.text.USBH_LL_OpenPipe,"ax",%progbits
+ 1015              		.align	1
+ 1016              		.global	USBH_LL_OpenPipe
+ 1017              		.syntax unified
+ 1018              		.thumb
+ 1019              		.thumb_func
+ 1021              	USBH_LL_OpenPipe:
+ 1022              	.LVL99:
+ 1023              	.LFB148:
+ 348:USB_HOST/Target/usbh_conf.c ****   HAL_StatusTypeDef hal_status = HAL_OK;
+ 1024              		.loc 1 348 1 is_stmt 1 view -0
+ 1025              		.cfi_startproc
+ 1026              		@ args = 12, pretend = 0, frame = 0
+ 1027              		@ frame_needed = 0, uses_anonymous_args = 0
+ 348:USB_HOST/Target/usbh_conf.c ****   HAL_StatusTypeDef hal_status = HAL_OK;
+ 1028              		.loc 1 348 1 is_stmt 0 view .LVU241
+ 1029 0000 10B5     		push	{r4, lr}
+ 1030              	.LCFI20:
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 30
+
+
+ 1031              		.cfi_def_cfa_offset 8
+ 1032              		.cfi_offset 4, -8
+ 1033              		.cfi_offset 14, -4
+ 1034 0002 84B0     		sub	sp, sp, #16
+ 1035              	.LCFI21:
+ 1036              		.cfi_def_cfa_offset 24
+ 349:USB_HOST/Target/usbh_conf.c ****   USBH_StatusTypeDef usb_status = USBH_OK;
+ 1037              		.loc 1 349 3 is_stmt 1 view .LVU242
+ 1038              	.LVL100:
+ 350:USB_HOST/Target/usbh_conf.c **** 
+ 1039              		.loc 1 350 3 view .LVU243
+ 352:USB_HOST/Target/usbh_conf.c ****                                dev_address, speed, ep_type, mps);
+ 1040              		.loc 1 352 3 view .LVU244
+ 352:USB_HOST/Target/usbh_conf.c ****                                dev_address, speed, ep_type, mps);
+ 1041              		.loc 1 352 37 is_stmt 0 view .LVU245
+ 1042 0004 D0F8D003 		ldr	r0, [r0, #976]
+ 1043              	.LVL101:
+ 352:USB_HOST/Target/usbh_conf.c ****                                dev_address, speed, ep_type, mps);
+ 1044              		.loc 1 352 16 view .LVU246
+ 1045 0008 BDF82040 		ldrh	r4, [sp, #32]
+ 1046 000c 0294     		str	r4, [sp, #8]
+ 1047 000e 9DF81C40 		ldrb	r4, [sp, #28]	@ zero_extendqisi2
+ 1048 0012 0194     		str	r4, [sp, #4]
+ 1049 0014 9DF81840 		ldrb	r4, [sp, #24]	@ zero_extendqisi2
+ 1050 0018 0094     		str	r4, [sp]
+ 1051 001a FFF7FEFF 		bl	HAL_HCD_HC_Init
+ 1052              	.LVL102:
+ 355:USB_HOST/Target/usbh_conf.c **** 
+ 1053              		.loc 1 355 3 is_stmt 1 view .LVU247
+ 355:USB_HOST/Target/usbh_conf.c **** 
+ 1054              		.loc 1 355 16 is_stmt 0 view .LVU248
+ 1055 001e FFF7FEFF 		bl	USBH_Get_USB_Status
+ 1056              	.LVL103:
+ 357:USB_HOST/Target/usbh_conf.c **** }
+ 1057              		.loc 1 357 3 is_stmt 1 view .LVU249
+ 358:USB_HOST/Target/usbh_conf.c **** 
+ 1058              		.loc 1 358 1 is_stmt 0 view .LVU250
+ 1059 0022 04B0     		add	sp, sp, #16
+ 1060              	.LCFI22:
+ 1061              		.cfi_def_cfa_offset 8
+ 1062              		@ sp needed
+ 1063 0024 10BD     		pop	{r4, pc}
+ 358:USB_HOST/Target/usbh_conf.c **** 
+ 1064              		.loc 1 358 1 view .LVU251
+ 1065              		.cfi_endproc
+ 1066              	.LFE148:
+ 1068              		.section	.text.USBH_LL_ClosePipe,"ax",%progbits
+ 1069              		.align	1
+ 1070              		.global	USBH_LL_ClosePipe
+ 1071              		.syntax unified
+ 1072              		.thumb
+ 1073              		.thumb_func
+ 1075              	USBH_LL_ClosePipe:
+ 1076              	.LVL104:
+ 1077              	.LFB149:
+ 367:USB_HOST/Target/usbh_conf.c ****   HAL_StatusTypeDef hal_status = HAL_OK;
+ 1078              		.loc 1 367 1 is_stmt 1 view -0
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 31
+
+
+ 1079              		.cfi_startproc
+ 1080              		@ args = 0, pretend = 0, frame = 0
+ 1081              		@ frame_needed = 0, uses_anonymous_args = 0
+ 367:USB_HOST/Target/usbh_conf.c ****   HAL_StatusTypeDef hal_status = HAL_OK;
+ 1082              		.loc 1 367 1 is_stmt 0 view .LVU253
+ 1083 0000 08B5     		push	{r3, lr}
+ 1084              	.LCFI23:
+ 1085              		.cfi_def_cfa_offset 8
+ 1086              		.cfi_offset 3, -8
+ 1087              		.cfi_offset 14, -4
+ 368:USB_HOST/Target/usbh_conf.c ****   USBH_StatusTypeDef usb_status = USBH_OK;
+ 1088              		.loc 1 368 3 is_stmt 1 view .LVU254
+ 1089              	.LVL105:
+ 369:USB_HOST/Target/usbh_conf.c **** 
+ 1090              		.loc 1 369 3 view .LVU255
+ 371:USB_HOST/Target/usbh_conf.c **** 
+ 1091              		.loc 1 371 3 view .LVU256
+ 371:USB_HOST/Target/usbh_conf.c **** 
+ 1092              		.loc 1 371 16 is_stmt 0 view .LVU257
+ 1093 0002 D0F8D003 		ldr	r0, [r0, #976]
+ 1094              	.LVL106:
+ 371:USB_HOST/Target/usbh_conf.c **** 
+ 1095              		.loc 1 371 16 view .LVU258
+ 1096 0006 FFF7FEFF 		bl	HAL_HCD_HC_Halt
+ 1097              	.LVL107:
+ 373:USB_HOST/Target/usbh_conf.c **** 
+ 1098              		.loc 1 373 3 is_stmt 1 view .LVU259
+ 373:USB_HOST/Target/usbh_conf.c **** 
+ 1099              		.loc 1 373 16 is_stmt 0 view .LVU260
+ 1100 000a FFF7FEFF 		bl	USBH_Get_USB_Status
+ 1101              	.LVL108:
+ 375:USB_HOST/Target/usbh_conf.c **** }
+ 1102              		.loc 1 375 3 is_stmt 1 view .LVU261
+ 376:USB_HOST/Target/usbh_conf.c **** 
+ 1103              		.loc 1 376 1 is_stmt 0 view .LVU262
+ 1104 000e 08BD     		pop	{r3, pc}
+ 1105              		.cfi_endproc
+ 1106              	.LFE149:
+ 1108              		.section	.text.USBH_LL_SubmitURB,"ax",%progbits
+ 1109              		.align	1
+ 1110              		.global	USBH_LL_SubmitURB
+ 1111              		.syntax unified
+ 1112              		.thumb
+ 1113              		.thumb_func
+ 1115              	USBH_LL_SubmitURB:
+ 1116              	.LVL109:
+ 1117              	.LFB150:
+ 408:USB_HOST/Target/usbh_conf.c ****   HAL_StatusTypeDef hal_status = HAL_OK;
+ 1118              		.loc 1 408 1 is_stmt 1 view -0
+ 1119              		.cfi_startproc
+ 1120              		@ args = 16, pretend = 0, frame = 0
+ 1121              		@ frame_needed = 0, uses_anonymous_args = 0
+ 408:USB_HOST/Target/usbh_conf.c ****   HAL_StatusTypeDef hal_status = HAL_OK;
+ 1122              		.loc 1 408 1 is_stmt 0 view .LVU264
+ 1123 0000 10B5     		push	{r4, lr}
+ 1124              	.LCFI24:
+ 1125              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 32
+
+
+ 1126              		.cfi_offset 4, -8
+ 1127              		.cfi_offset 14, -4
+ 1128 0002 84B0     		sub	sp, sp, #16
+ 1129              	.LCFI25:
+ 1130              		.cfi_def_cfa_offset 24
+ 409:USB_HOST/Target/usbh_conf.c ****   USBH_StatusTypeDef usb_status = USBH_OK;
+ 1131              		.loc 1 409 3 is_stmt 1 view .LVU265
+ 1132              	.LVL110:
+ 410:USB_HOST/Target/usbh_conf.c **** 
+ 1133              		.loc 1 410 3 view .LVU266
+ 412:USB_HOST/Target/usbh_conf.c ****                                         ep_type, token, pbuff, length,
+ 1134              		.loc 1 412 3 view .LVU267
+ 412:USB_HOST/Target/usbh_conf.c ****                                         ep_type, token, pbuff, length,
+ 1135              		.loc 1 412 46 is_stmt 0 view .LVU268
+ 1136 0004 D0F8D003 		ldr	r0, [r0, #976]
+ 1137              	.LVL111:
+ 412:USB_HOST/Target/usbh_conf.c ****                                         ep_type, token, pbuff, length,
+ 1138              		.loc 1 412 16 view .LVU269
+ 1139 0008 9DF82440 		ldrb	r4, [sp, #36]	@ zero_extendqisi2
+ 1140 000c 0394     		str	r4, [sp, #12]
+ 1141 000e BDF82040 		ldrh	r4, [sp, #32]
+ 1142 0012 0294     		str	r4, [sp, #8]
+ 1143 0014 079C     		ldr	r4, [sp, #28]
+ 1144 0016 0194     		str	r4, [sp, #4]
+ 1145 0018 9DF81840 		ldrb	r4, [sp, #24]	@ zero_extendqisi2
+ 1146 001c 0094     		str	r4, [sp]
+ 1147 001e FFF7FEFF 		bl	HAL_HCD_HC_SubmitRequest
+ 1148              	.LVL112:
+ 415:USB_HOST/Target/usbh_conf.c **** 
+ 1149              		.loc 1 415 3 is_stmt 1 view .LVU270
+ 415:USB_HOST/Target/usbh_conf.c **** 
+ 1150              		.loc 1 415 17 is_stmt 0 view .LVU271
+ 1151 0022 FFF7FEFF 		bl	USBH_Get_USB_Status
+ 1152              	.LVL113:
+ 417:USB_HOST/Target/usbh_conf.c **** }
+ 1153              		.loc 1 417 3 is_stmt 1 view .LVU272
+ 418:USB_HOST/Target/usbh_conf.c **** 
+ 1154              		.loc 1 418 1 is_stmt 0 view .LVU273
+ 1155 0026 04B0     		add	sp, sp, #16
+ 1156              	.LCFI26:
+ 1157              		.cfi_def_cfa_offset 8
+ 1158              		@ sp needed
+ 1159 0028 10BD     		pop	{r4, pc}
+ 418:USB_HOST/Target/usbh_conf.c **** 
+ 1160              		.loc 1 418 1 view .LVU274
+ 1161              		.cfi_endproc
+ 1162              	.LFE150:
+ 1164              		.global	hhcd_USB_OTG_FS
+ 1165              		.section	.bss.hhcd_USB_OTG_FS,"aw",%nobits
+ 1166              		.align	2
+ 1167              		.set	.LANCHOR0,. + 0
+ 1170              	hhcd_USB_OTG_FS:
+ 1171 0000 00000000 		.space	772
+ 1171      00000000 
+ 1171      00000000 
+ 1171      00000000 
+ 1171      00000000 
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 33
+
+
+ 1172              		.text
+ 1173              	.Letext0:
+ 1174              		.file 2 "r:\\tools\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\machine\\_defa
+ 1175              		.file 3 "r:\\tools\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\sys\\_stdint.h
+ 1176              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h"
+ 1177              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 1178              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 1179              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 1180              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h"
+ 1181              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_hcd.h"
+ 1182              		.file 10 "Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_def.h"
+ 1183              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 1184              		.file 12 "USB_HOST/Target/usbh_platform.h"
+ 1185              		.file 13 "Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_core.h"
+ 1186              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 34
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 usbh_conf.c
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:20     .text.HAL_HCD_MspInit:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:26     .text.HAL_HCD_MspInit:00000000 HAL_HCD_MspInit
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:165    .text.HAL_HCD_MspInit:00000090 $d
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:171    .text.HAL_HCD_MspDeInit:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:177    .text.HAL_HCD_MspDeInit:00000000 HAL_HCD_MspDeInit
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:223    .text.HAL_HCD_MspDeInit:00000028 $d
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:229    .text.HAL_HCD_SOF_Callback:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:235    .text.HAL_HCD_SOF_Callback:00000000 HAL_HCD_SOF_Callback
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:260    .text.HAL_HCD_Connect_Callback:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:266    .text.HAL_HCD_Connect_Callback:00000000 HAL_HCD_Connect_Callback
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:291    .text.HAL_HCD_Disconnect_Callback:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:297    .text.HAL_HCD_Disconnect_Callback:00000000 HAL_HCD_Disconnect_Callback
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:322    .text.HAL_HCD_HC_NotifyURBChange_Callback:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:328    .text.HAL_HCD_HC_NotifyURBChange_Callback:00000000 HAL_HCD_HC_NotifyURBChange_Callback
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:342    .text.HAL_HCD_PortEnabled_Callback:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:348    .text.HAL_HCD_PortEnabled_Callback:00000000 HAL_HCD_PortEnabled_Callback
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:373    .text.HAL_HCD_PortDisabled_Callback:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:379    .text.HAL_HCD_PortDisabled_Callback:00000000 HAL_HCD_PortDisabled_Callback
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:404    .text.USBH_LL_Init:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:410    .text.USBH_LL_Init:00000000 USBH_LL_Init
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:498    .text.USBH_LL_Init:00000050 $d
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:503    .text.USBH_LL_GetSpeed:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:509    .text.USBH_LL_GetSpeed:00000000 USBH_LL_GetSpeed
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:557    .text.USBH_LL_GetLastXferSize:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:563    .text.USBH_LL_GetLastXferSize:00000000 USBH_LL_GetLastXferSize
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:589    .text.USBH_LL_GetURBState:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:595    .text.USBH_LL_GetURBState:00000000 USBH_LL_GetURBState
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:621    .text.USBH_LL_DriverVBUS:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:627    .text.USBH_LL_DriverVBUS:00000000 USBH_LL_DriverVBUS
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:670    .text.USBH_LL_SetToggle:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:676    .text.USBH_LL_SetToggle:00000000 USBH_LL_SetToggle
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:727    .text.USBH_LL_GetToggle:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:733    .text.USBH_LL_GetToggle:00000000 USBH_LL_GetToggle
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:781    .text.USBH_Delay:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:787    .text.USBH_Delay:00000000 USBH_Delay
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:809    .text.USBH_Get_USB_Status:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:815    .text.USBH_Get_USB_Status:00000000 USBH_Get_USB_Status
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:829    .text.USBH_Get_USB_Status:00000008 $d
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:855    .text.USBH_LL_DeInit:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:861    .text.USBH_LL_DeInit:00000000 USBH_LL_DeInit
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:895    .text.USBH_LL_Start:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:901    .text.USBH_LL_Start:00000000 USBH_LL_Start
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:935    .text.USBH_LL_Stop:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:941    .text.USBH_LL_Stop:00000000 USBH_LL_Stop
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:975    .text.USBH_LL_ResetPort:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:981    .text.USBH_LL_ResetPort:00000000 USBH_LL_ResetPort
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:1015   .text.USBH_LL_OpenPipe:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:1021   .text.USBH_LL_OpenPipe:00000000 USBH_LL_OpenPipe
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:1069   .text.USBH_LL_ClosePipe:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:1075   .text.USBH_LL_ClosePipe:00000000 USBH_LL_ClosePipe
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:1109   .text.USBH_LL_SubmitURB:00000000 $t
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:1115   .text.USBH_LL_SubmitURB:00000000 USBH_LL_SubmitURB
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:1170   .bss.hhcd_USB_OTG_FS:00000000 hhcd_USB_OTG_FS
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:1166   .bss.hhcd_USB_OTG_FS:00000000 $d
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:832    .text.USBH_Get_USB_Status:0000000b $d
+ARM GAS  C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s 			page 35
+
+
+C:\Users\Kenneth\AppData\Local\Temp\ccSdAAXO.s:832    .text.USBH_Get_USB_Status:0000000c $t
+
+UNDEFINED SYMBOLS
+HAL_GPIO_Init
+HAL_NVIC_SetPriority
+HAL_NVIC_EnableIRQ
+HAL_GPIO_DeInit
+HAL_NVIC_DisableIRQ
+USBH_LL_IncTimer
+USBH_LL_Connect
+USBH_LL_Disconnect
+USBH_LL_PortEnabled
+USBH_LL_PortDisabled
+HAL_HCD_Init
+HAL_HCD_GetCurrentFrame
+USBH_LL_SetTimer
+Error_Handler
+HAL_HCD_GetCurrentSpeed
+HAL_HCD_HC_GetXferCount
+HAL_HCD_HC_GetURBState
+HAL_Delay
+MX_DriverVbusFS
+HAL_HCD_DeInit
+HAL_HCD_Start
+HAL_HCD_Stop
+HAL_HCD_ResetPort
+HAL_HCD_HC_Init
+HAL_HCD_HC_Halt
+HAL_HCD_HC_SubmitRequest
